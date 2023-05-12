@@ -1,4 +1,5 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/ee834f6a71fc0ca2cf33/maintainability)](https://codeclimate.com/github/Marre-86/ecommerce/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/ee834f6a71fc0ca2cf33/test_coverage)](https://codeclimate.com/github/Marre-86/ecommerce/test_coverage)
 
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
