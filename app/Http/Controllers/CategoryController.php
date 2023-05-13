@@ -29,11 +29,14 @@ class CategoryController extends Controller
             'parent_id' => 'sometimes|nullable|numeric'
         ]);
 
+        // since we don't receive any info on grandparent from  request we have to check it manually
+        // and add it into 'grandparent_id' field if it exists
         $parent = Category::where('id', $request->input('parent_id'))->first();
+        $newCategory = isset($parent->parent_id) ? $validatedData + ['grandparent_id' => $parent->parent_id] : $validatedData;   // phpcs:ignore
+        Category::create($newCategory);
 
-        Category::create($validatedData + ['grandparent_id' => $parent->parent_id]);
-
-        return redirect()->route('category.index')->withSuccess('You have successfully created a Category!');
+        flash('You have successfully created a Category!')->success();
+        return redirect()->route('category.index');
     }
 
     /**
@@ -69,7 +72,7 @@ class CategoryController extends Controller
 
         $category->delete();
 
-        flash('Success')->success();
+        flash('The category has been deleted')->success();
         return redirect()->route('category.index');
     }
 }

@@ -13,7 +13,7 @@
                         <div class="d-flex justify-content-between">
                           {{ $category->name }}
                           <div class="button-group d-flex">
-                            <a  class="text-red-600 hover:text-red-900" href="{{ route('category.destroy', $category) }}" data-confirm="Are you sure? It will also delete also nested categories!" data-method="delete" rel="nofollow">Удалить</a>
+                            <a  class="btn btn-outline-danger btn-sm" href="{{ route('category.destroy', $category) }}" data-confirm="Are you sure? It will also delete also nested categories!" data-method="delete" rel="nofollow">Delete</a>
                           </div>
                         </div>
 
@@ -25,7 +25,7 @@
                                   {{ $child->name }}
 
                                   <div class="button-group d-flex">
-                                  <a  class="text-red-600 hover:text-red-900" href="{{ route('category.destroy', $child) }}" data-confirm="Are you sure? It will also delete also nested categories!" data-method="delete" rel="nofollow">Удалить</a>
+                                    <a  class="btn btn-outline-danger btn-sm" href="{{ route('category.destroy', $child) }}" data-confirm="Are you sure? It will also delete also nested categories!" data-method="delete" rel="nofollow">Delete</a>
                                   </div>
                                 </div>
 
@@ -37,7 +37,7 @@
                                                     {{ $grandchild->name }}
 
                                                     <div class="button-group d-flex">
-                                                    <a  class="text-red-600 hover:text-red-900" href="{{ route('category.destroy', $grandchild) }}" data-confirm="Are you sure?" data-method="delete" rel="nofollow">Удалить</a>
+                                                    <a  class="btn btn-outline-danger btn-sm" href="{{ route('category.destroy', $grandchild) }}" data-confirm="Are you sure?" data-method="delete" rel="nofollow">Delete</a>
                                                     </div>
                                                 </div>
                                             </li>

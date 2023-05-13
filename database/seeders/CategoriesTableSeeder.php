@@ -66,5 +66,11 @@ class CategoriesTableSeeder extends Seeder
             'parent_id' => 2,
         ]);
 
+        Category::create([
+            'name' => 'Valenki',
+            'parent_id' => 10,
+            'grandparent_id' => 2,
+        ]);
+
     }
 }

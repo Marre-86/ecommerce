@@ -8,7 +8,7 @@
                   <form action="{{ route('category.store') }}" method="POST">
                     @csrf
 
-                    <div class="form-group">
+                    <div class="form-group" style="margin-bottom:10px">
                       <select class="form-control" name="parent_id">
                         <option value="">Select Parent Category</option>
 
@@ -23,12 +23,12 @@
                       </select>
                     </div>
 
-                    <div class="form-group">
+                    <div class="form-group" style="margin-bottom:10px">
                       <input type="text" name="name" class="form-control" value="{{ old('name') }}" placeholder="Category Name" required>
                     </div>
 
                     <div class="form-group">
-                      <button type="submit" class="btn btn-primary">Create</button>
+                      <button type="submit" class="btn btn-success">Create</button>
                     </div>
                   </form>
                 </div>

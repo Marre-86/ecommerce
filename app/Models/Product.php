@@ -12,6 +12,8 @@ class Product extends Model
     use HasFactory;
     use HasSlug;
 
+    protected $fillable = ['name', 'price', 'category_id'];
+
     /**
      * Get the options for generating the slug.
      */

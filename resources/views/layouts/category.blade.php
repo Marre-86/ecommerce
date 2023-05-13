@@ -12,11 +12,13 @@
     </head>
     <body class="container-fluid">
         <div id="app">
-            @if (session()->has('flash_notification'))               
-               <div style="position: absolute; top: 45%; left: 40%;  width: 30%; text-align: center">
-                    @include('flash::message')
-                </div>
-            @endif
+            <div x-data="{ showMessage: true }" x-show="showMessage" x-init="setTimeout(() => showMessage = false, 2200)">
+                @if (session()->has('flash_notification'))               
+                    <div style="position: absolute; top: 45%; left: 40%;  width: 30%; text-align: center">
+                        @include('flash::message')
+                    </div>
+                @endif
+            </div>
 
             @yield('content')
 
