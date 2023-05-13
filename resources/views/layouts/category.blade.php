@@ -7,12 +7,19 @@
         <meta name="csrf-param" content="_token" />
 
         <title>{{ config('app.name') }}</title>
+                <!-- Scripts -->
+                @vite(['resources/js/app.js', 'resources/scss/app.scss'])
     </head>
     <body class="container-fluid">
         <div id="app">
+            @if (session()->has('flash_notification'))               
+               <div style="position: absolute; top: 45%; left: 40%;  width: 30%; text-align: center">
+                    @include('flash::message')
+                </div>
+            @endif
 
             @yield('content')
-            
+
         </div>
     </body>
 </html>

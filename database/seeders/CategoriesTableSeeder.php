@@ -61,5 +61,10 @@ class CategoriesTableSeeder extends Seeder
             'grandparent_id' => 1
         ]);
 
+        Category::create([
+            'name' => 'Shoes',
+            'parent_id' => 2,
+        ]);
+
     }
 }

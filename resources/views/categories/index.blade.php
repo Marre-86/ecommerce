@@ -1,7 +1,7 @@
 @extends('layouts.category')
 @section('content')
         <div class="row">
-            <div class="col-md-8">
+            <div class="col-md-4">
               <div class="card">
                 <div class="card-header">
                   <h3>Categories</h3>
@@ -13,14 +13,7 @@
                         <div class="d-flex justify-content-between">
                           {{ $category->name }}
                           <div class="button-group d-flex">
-                            <button type="button" class="btn btn-sm btn-primary mr-1 edit-category" data-toggle="modal" data-target="#editCategoryModal" data-id="{{ $category->id }}" data-name="{{ $category->name }}">Edit</button>
-
-                            <form action="{{ route('category.destroy', $category->id) }}" method="POST">
-                              @csrf
-                              @method('DELETE')
-
-                              <button type="submit" class="btn btn-sm btn-danger">Delete</button>
-                            </form>
+                            <a  class="text-red-600 hover:text-red-900" href="{{ route('category.destroy', $category) }}" data-confirm="Are you sure? It will also delete also nested categories!" data-method="delete" rel="nofollow">Удалить</a>
                           </div>
                         </div>
 
@@ -32,14 +25,7 @@
                                   {{ $child->name }}
 
                                   <div class="button-group d-flex">
-                                    <button type="button" class="btn btn-sm btn-primary mr-1 edit-category" data-toggle="modal" data-target="#editCategoryModal" data-id="{{ $child->id }}" data-name="{{ $child->name }}">Edit</button>
-
-                                    <form action="{{ route('category.destroy', $child->id) }}" method="POST">
-                                      @csrf
-                                      @method('DELETE')
-
-                                      <button type="submit" class="btn btn-sm btn-danger">Delete</button>
-                                    </form>
+                                  <a  class="text-red-600 hover:text-red-900" href="{{ route('category.destroy', $child) }}" data-confirm="Are you sure? It will also delete also nested categories!" data-method="delete" rel="nofollow">Удалить</a>
                                   </div>
                                 </div>
 
@@ -51,14 +37,7 @@
                                                     {{ $grandchild->name }}
 
                                                     <div class="button-group d-flex">
-                                                        <button type="button" class="btn btn-sm btn-primary mr-1 edit-category" data-toggle="modal" data-target="#editCategoryModal" data-id="{{ $child->id }}" data-name="{{ $child->name }}">Edit</button>
-
-                                                        <form action="{{ route('category.destroy', $child->id) }}" method="POST">
-                                                            @csrf
-                                                            @method('DELETE')
-
-                                                            <button type="submit" class="btn btn-sm btn-danger">Delete</button>
-                                                        </form>
+                                                    <a  class="text-red-600 hover:text-red-900" href="{{ route('category.destroy', $grandchild) }}" data-confirm="Are you sure?" data-method="delete" rel="nofollow">Удалить</a>
                                                     </div>
                                                 </div>
                                             </li>
@@ -76,4 +55,7 @@
                 </div>
               </div>
             </div>
+
+            @include('categories.create')          
+
 @endsection
