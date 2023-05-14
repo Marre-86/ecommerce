@@ -13,10 +13,9 @@ class CategoryController extends Controller
 {
     public function tree()
     {
-
         $categories = Category::whereNull('parent_id')->with('childrenWithGrandchildren')->get();
         $resource = new Collection($categories, new CategoryTransformer());
         $fractal = new Manager();
-        return $fractal->createData($resource)->toJson();
+        return $fractal->createData($resource)->toArray();
     }
 }

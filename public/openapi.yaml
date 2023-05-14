@@ -1,0 +1,67 @@
+openapi: 3.0.0
+info:
+  title: Pokhiliuk Ecommerce API
+  description: Artem Pokhiliuk's training progect 
+  version: 1.0.0
+servers:
+  - url: https://$$$$$$$$$$-production.up.railway.app/api/v1
+    description: Main (production) server
+  - url: localhost:8000/api/v1
+    description: Internal staging server for testing
+paths:
+  /listing-categories/tree:
+    get:
+      summary: Returns a tree of categories (nested structure).
+      responses:
+        '200':    # status code
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                  $ref: '#/components/schemas/RootObject'
+        '400':
+          description: Unsuccessful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+components:
+  schemas:
+    RootObject:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/ResourceObject'
+      required:
+        - data
+    ResourceObject:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 10
+        name:
+          type: string
+          example: High heels
+        parent_id:
+          type: integer
+          nullable: true
+        grandparent_id:
+          type: integer
+          nullable: true
+        children:
+          type: array
+          items:
+            $ref: '#/components/schemas/ResourceObject'
+      required:
+        - id
+        - name
+    ErrorResponse:
+      type: object
+      properties:
+        message:
+          type: string
+      required:
+        - message

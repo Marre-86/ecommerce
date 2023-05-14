@@ -14,8 +14,8 @@ class CategoryTransformer extends TransformerAbstract
             $item = [
                 'id' => (int) $category->id,
                 'name' => $category->name,
-                'parent_id' => (int) $category->parent_id,
-                'grandparent_id' => (int) $category->grandparent_id,
+                'parent_id' => $category->parent_id,
+                'grandparent_id' => $category->grandparent_id,
             ];
             foreach ($category->childrenWithGrandchildren as $child) {
                 $item['children'][] = $this->transform($child);
@@ -26,8 +26,8 @@ class CategoryTransformer extends TransformerAbstract
         return [
             'id' => (int) $category->id,
             'name' => $category->name,
-            'parent_id' => (int) $category->parent_id,
-            'grandparent_id' => (int) $category->grandparent_id,
+            'parent_id' => $category->parent_id,
+            'grandparent_id' => $category->grandparent_id,
         ];
     }
 }
