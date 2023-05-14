@@ -16,6 +16,11 @@ class Category extends Model
         return $this->hasMany('App\Models\Category', 'parent_id');
     }
 
+    public function childrenWithGrandchildren()
+    {
+        return $this->hasMany('App\Models\Category', 'parent_id')->with('children');
+    }
+
     public function products()
     {
         // каждый статус может содержаться в множестве задач
