@@ -19,3 +19,12 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::get('listing-categories/tree', 'App\Http\Controllers\Api\V1\CategoryController@tree');
+
+Route::controller('App\Http\Controllers\Api\V1\RegisterController')->group(function () {
+    Route::post('register', 'register');
+    Route::post('login', 'login');
+});
+
+Route::middleware('auth:sanctum')->group(function () {
+    Route::post('category', 'App\Http\Controllers\Api\V1\CategoryController@store');
+});

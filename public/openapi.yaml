@@ -18,25 +18,60 @@ paths:
           content:
             application/json:
               schema:
-                  $ref: '#/components/schemas/RootObject'
-        '400':
-          description: Unsuccessful operation
+                  $ref: '#/components/schemas/ResponseObject'
+  /category:
+    post:
+      summary: Adds a new category. Requires authorization
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Category'
+      responses: 
+        '201':
+          description: New category has been added
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorResponse'
+                $ref: '#/components/schemas/ResponseObject'
+        '401':
+          description: Access token is missing or invalid
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseObject'
+        '400':
+          description: Bad request. Category has not been added
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseObject'
 components:
+  securitySchemes:
+    bearerAuth: 
+      type: http
+      scheme: bearer
   schemas:
-    RootObject:
+    ResponseObject:
       type: object
       properties:
+        success:
+          type: boolean
         data:
-          type: array
-          items:
-            $ref: '#/components/schemas/ResourceObject'
-      required:
-        - data
-    ResourceObject:
+          oneOf:
+            - type: array
+              items:
+                $ref: '#/components/schemas/Category'
+            - type: object
+              oneOf:
+                - $ref: '#/components/schemas/Category'
+                - $ref: '#/components/schemas/Error'
+        message:
+          type: string
+    Category:
       type: object
       properties:
         id:
@@ -54,14 +89,14 @@ components:
         children:
           type: array
           items:
-            $ref: '#/components/schemas/ResourceObject'
+            $ref: '#/components/schemas/Category'
       required:
-        - id
         - name
-    ErrorResponse:
+    Error:
       type: object
       properties:
-        message:
+        error:
           type: string
+          example: Bad request
       required:
-        - message
+        - error
