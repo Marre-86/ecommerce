@@ -1,4 +1,4 @@
-@extends('layouts.category')
+@extends('layouts.main')
 @section('content')
         <div class="row">
             <div class="col-md-4">
@@ -55,7 +55,7 @@
                 </div>
               </div>
             </div>
-
-            @include('categories.create')          
-
+            @auth
+              @include('categories.create')          
+            @endauth
 @endsection
