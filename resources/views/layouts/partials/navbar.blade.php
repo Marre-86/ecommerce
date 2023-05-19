@@ -14,7 +14,7 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">123</a>
+                                    <a class="nav-link {{ (Route::current()->getName() == 'prodlist') ? 'active' : '' }}" href="{{ route('prodlist') }}">Products</a>
                                 </li>
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Categories</a>

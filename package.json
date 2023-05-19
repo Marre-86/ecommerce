@@ -18,7 +18,10 @@
     },
     "dependencies": {
         "@rails/ujs": "^7.0.4-3",
+        "@vitejs/plugin-vue": "^4.2.3",
         "alpinejs": "^3.12.1",
-        "bootstrap-scss": "^5.2.3"
+        "bootstrap-scss": "^5.2.3",
+        "vue": "^3.2.36",
+        "vue-loader": "^17.0.1"
     }
 }
