@@ -17,9 +17,9 @@ return new class extends Migration
             $table->string('slug');
             $table->text('description')->nullable();
             $table->double('price');
-            $table->integer('weight')->nullable();
-            $table->integer('length')->nullable();
-            $table->integer('width')->nullable();
+            $table->double('weight')->nullable();
+            $table->double('length')->nullable();
+            $table->double('width')->nullable();
             $table->integer('category_id');
             $table->foreign('category_id')
                 ->references('id')

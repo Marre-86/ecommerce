@@ -6,6 +6,8 @@ use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
+use Database\Seeders\CategoriesTableSeeder;
+use Database\Seeders\ProductsShortTableSeeder;
 
 class DestroyTest extends TestCase
 {
@@ -13,7 +15,8 @@ class DestroyTest extends TestCase
 
     public function testCategoryIsDeletedFromDatabase(): void
     {
-        $this->seed();
+        $this->seed(CategoriesTableSeeder::class);
+        $this->seed(ProductsShortTableSeeder::class);
 
         $category = Category::where('name', 'Children')->firstOrFail();
 
@@ -39,7 +42,8 @@ class DestroyTest extends TestCase
 
     public function testNestedBranchIsDeletedFromDatabase(): void
     {
-        $this->seed();
+        $this->seed(CategoriesTableSeeder::class);
+        $this->seed(ProductsShortTableSeeder::class);
 
         $category = Category::where('name', 'Men')->firstOrFail();
 
