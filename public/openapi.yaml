@@ -81,6 +81,25 @@ paths:
                     type: string
                   data:
                     $ref: '#/components/schemas/ValidationError'
+  /products:
+    get:
+      summary: Returns a list of products in the database.
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  message:
+                    type: string
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Product'
   /listing-categories/tree:
     get:
       summary: Returns a tree of categories (nested structure).
@@ -171,6 +190,32 @@ components:
                 - $ref: '#/components/schemas/Category'
         message:
           type: string
+    Product:
+      required: [id, name, slug, description, category_id, price, weight, length, width]
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        slug:
+          type: string
+        description:
+          type: string
+          nullable: true
+        category_id:
+          type: integer
+        price:
+          type: number
+        weight:
+          type: number
+          nullable: true
+        length:
+          type: number
+          nullable: true
+        width:
+          type: number
+          nullable: true
     Category:
       type: object
       properties:

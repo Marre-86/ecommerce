@@ -18,7 +18,7 @@ class CategoryController extends BaseController
         $fractal = new Manager();
         // using current() here in order to remove Fractal in-built 'data' key
         $categoryTree = current($fractal->createData($resource)->toArray());
-        return $this->sendResponse($categoryTree, 'Products retrieved successfully.');
+        return $this->sendResponse($categoryTree, 'Categories retrieved successfully.');
     }
 
     public function store(Request $request)

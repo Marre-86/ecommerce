@@ -19,6 +19,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::get('listing-categories/tree', 'App\Http\Controllers\Api\V1\CategoryController@tree');
+Route::get('products', 'App\Http\Controllers\Api\V1\ProductController@index');
 
 Route::controller('App\Http\Controllers\Api\V1\RegisterController')->group(function () {
     Route::post('register', 'register');
