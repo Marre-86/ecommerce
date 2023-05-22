@@ -42,17 +42,14 @@ export default {
   ],
   data() {
     return {
+      allProducts: [],
       products: [],
-      catsMock: [],
-      weightMock: [],
-      lengthMock: [],
-      widthMock: [],
     };
   },
   computed: {
     categories() {
       const categories = [];
-      for (const product of this.products) {
+      for (const product of this.allProducts) {
         let current = {}
         current['id'] = product.category_id
         current['name'] = product.category_name
@@ -61,42 +58,40 @@ export default {
           categories.push(current)
         }        
       }
-      return (categories.length > this.catsMock.length) ? categories : this.catsMock;
+      return categories;
     },
     weights() {
       const weights = [];
-      for (const product of this.products) {
+      for (const product of this.allProducts) {
         if (!weights.includes(product.weight) && product.weight !== null) {
           weights.push(product.weight)
         }
       }
-      return (weights.length > this.weightMock.length) ? weights.sort() : this.weightMock;
+      return weights.sort();
     },
     lengths() {
       const lengths = [];
-      for (const product of this.products) {
+      for (const product of this.allProducts) {
         if (!lengths.includes(product.length) && product.length !== null) {
           lengths.push(product.length)
         }
       }
-      return (lengths.length > this.lengthMock.length) ? lengths.sort() : this.lengthMock;
+      return lengths.sort();
     },
     widths() {
       const widths = [];
-      for (const product of this.products) {
+      for (const product of this.allProducts) {
         if (!widths.includes(product.width) && product.width !== null) {
           widths.push(product.width)
         }
       }
-      return (widths.length > this.widthMock.length) ? widths.sort() : this.widthMock;
+      return widths.sort();
     },
   },
-  watch: {
-    api_url: {
-      handler(){
-        axios.get(this.api_url)
+  created() {
+    axios.get('api/v1/products')
         .then(res => {
-          this.products = res.data.data
+          this.allProducts = res.data.data
           this.$emit('categories', this.categories)
           this.$emit('weights', this.weights)
           this.$emit('lengths', this.lengths)
@@ -106,21 +101,21 @@ export default {
           console.log(error)
           // Manage errors if found any
         })
+  },
+  watch: {
+    api_url: {
+      handler(){
+        axios.get(this.api_url)
+        .then(res => {
+          this.products = res.data.data
+        })
+        .catch(error => {
+          console.log(error)
+          // Manage errors if found any
+        })
       },
       immediate: true
-    },
-    categories(newValue) {
-      this.catsMock = newValue
-    },
-    weights(newValue) {
-      this.weightMock = newValue
-    },
-    lengths(newValue) {
-      this.lengthMock = newValue
-    },
-    widths(newValue) {
-      this.widthMock = newValue
-    },
+    }
   }
 };
 </script>

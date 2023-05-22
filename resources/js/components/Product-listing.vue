@@ -50,7 +50,7 @@
   </template>
    
   <script>
-  import ProductCard from './components/ProductCard.vue'
+  import ProductCard from './ProductCard.vue'
   
   export default {
     components: {
@@ -72,7 +72,12 @@
           widths: [],
       };
     },
-    methods: {
+    created() {
+      const params = new URLSearchParams(this.$route.query);
+      this.filter_category_id = params.get('filter[category_id]') || '';
+      this.$router.replace({'query': null});
+    },
+     methods: {
       handleCategories(value) {
         this.categories = value;
       },

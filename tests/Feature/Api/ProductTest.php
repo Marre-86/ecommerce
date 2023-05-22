@@ -59,7 +59,7 @@ class ProductTest extends TestCase
 
         $response
             ->assertJson(fn (AssertableJson $json) =>
-                $json->has('data', 13, fn (AssertableJson $json) =>
+                $json->has('data', 12, fn (AssertableJson $json) =>
                         $json->where('id', 1)
                             ->where('name', 'ANRABESS Casual Loose Short Sleeve Long Dress')
                             ->etc())

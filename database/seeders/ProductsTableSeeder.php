@@ -85,11 +85,12 @@ class ProductsTableSeeder extends Seeder
         ]);
 
         Product::create([
-            'name' => 'The Drop Women\'s Troy Pointed Toe Mule Slide',
-            'price' => 21.49,
+            'name' => 'CZDYUF Summer New Square Toe Ladies Slippers Set Toe High Heels Ladies Mules',
+            'description' => 'Simple and elegant shoe design.',
+            'price' => 245.61,
             'weight' => 0.48,
-            'width' => 1.12,
-            'length' => 2.13,
+            'width' => 1.15,
+            'length' => 2.04,
             'category_id' => 7
         ]);
 
