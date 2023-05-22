@@ -228,7 +228,7 @@ class ProductsTableSeeder extends Seeder
             'description' => 'oft and comfortable fleece Materials, naturally Warm. The toddler Beanie Hat and Mittens are all double layered with soft and fuzzy Sherpa lining for comfort and extra warmth. Outside: 100% Acrylic. Lining: Soft Fleece Lining.',
             'price' => 15.99,
             'weight' => 0.54,
-            'width' => 0.23,
+            'width' => 0.28,
             'length' => 0.26,
             'category_id' => 3
         ]);        
