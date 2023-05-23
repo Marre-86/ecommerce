@@ -5,10 +5,20 @@
       <h6 class="card-subtitle text-muted" style="width: 10rem; float:left">{{ product.category_name }}</h6>
       <button type="button" class="btn btn-info disabled" style="background-color:#007bff;float:right">{{ product.price }} $</button>
     </div>
-    <svg xmlns="http://www.w3.org/2000/svg" class="d-block user-select-none" width="100%" height="200" aria-label="Placeholder: Image cap" focusable="false" role="img" preserveAspectRatio="xMidYMid slice" viewBox="0 0 318 180" style="font-size:1.125rem;text-anchor:middle">
-      <rect width="100%" height="100%" fill="#868e96"></rect>
-      <text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text>
-    </svg>
+    <div class="button-container">
+      <svg xmlns="http://www.w3.org/2000/svg" class="d-block user-select-none" width="100%" height="200" aria-label="Placeholder: Image cap" focusable="false" role="img" preserveAspectRatio="xMidYMid slice" viewBox="0 0 318 180" style="font-size:1.125rem;text-anchor:middle">
+        <rect width="100%" height="100%" fill="#868e96"></rect>
+        <text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text>
+      </svg>
+      <form action="/cart" method="POST" enctype="multipart/form-data">
+        <input type="hidden" name="_token" :value="csrf">
+        <input type="hidden" :value=product.id name="id">
+        <input type="hidden" :value=product.name name="name">
+        <input type="hidden" :value=product.price name="price">
+        <input type="hidden" value="1" name="quantity">
+        <button class="btn btn-dark">Add To Cart</button>
+      </form> 
+    </div>
     <div class="card-body">
       <p class="card-text ellipsis" style="height: 4.3rem;">{{ product.description }}</p>
     </div>
@@ -17,13 +27,6 @@
       <li class="list-group-item">Length: {{ product.length }}</li>
       <li class="list-group-item">Width: {{ product.width }}</li>
     </ul>
-    <div class="card-body">
-      <a href="#" class="card-link">Card link</a>
-      <a href="#" class="card-link">Another link</a>
-    </div>
-    <div class="card-footer text-muted">
-      2 days ago
-    </div>
   </div>
   <div v-else class="card border-primary mb-3" style="max-width: 20rem; text-align: center; margin:auto">
       <div class="card-body">
@@ -44,6 +47,7 @@ export default {
     return {
       allProducts: [],
       products: [],
+      csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content')
     };
   },
   computed: {
@@ -128,5 +132,15 @@ export default {
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+.button-container{
+display:inline-block;
+position:relative;
+}
+
+.button-container button{
+position: absolute;
+bottom:0.5rem;
+right:0.5rem;
 }
 </style>

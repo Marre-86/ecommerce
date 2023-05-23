@@ -53,3 +53,13 @@ $web-font-path: "https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&di
     height:auto;
     }
   }
+  
+
+  .cart {
+    width:60%;
+  }
+  @media (max-width: 1250px) {
+    .cart {
+      width:100%;
+    }
+  }
