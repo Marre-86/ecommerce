@@ -44,6 +44,12 @@
                       @endif
                     </div>
 
+                    <div class="form-group" style="margin-bottom:10px">
+                      <x-input-label for="phone" :value="__('Phone')" />
+                      <x-text-input id="phone" name="phone" type="text" class="form-control" :value="old('phone', $user->phone)" autofocus autocomplete="phone" />
+                      <x-input-error class="mt-2" :messages="$errors->get('phone')" />
+                    </div>
+
                     <div class="form-group">
                       <div style="display:inline-block;">
                         <x-primary-button class="btn btn-success" style="display:inline-block;">{{ __('Save') }}</x-primary-button>

@@ -49,5 +49,10 @@
             </form>
         </div>
         @endif
+
+        <div style="clear:both">
+            @include('components.make-order-form')
+        </div>
+
     </div>
 @endsection

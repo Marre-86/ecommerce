@@ -23,8 +23,6 @@ class Category extends Model
 
     public function products()
     {
-        // каждый статус может содержаться в множестве задач
-        // hasMany определяется у модели, имеющей внешние ключи в других таблицах
-        return $this->hasMany('App\Models\Product', 'category_id');
+         return $this->hasMany('App\Models\Product', 'category_id');
     }
 }
