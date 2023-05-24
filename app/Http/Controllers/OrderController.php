@@ -13,15 +13,8 @@ class OrderController extends Controller
      */
     public function index()
     {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
+        $orders = Order::orderBy('id', 'desc')->paginate(5);
+        return view('orders.index', compact('orders'));
     }
 
     /**
@@ -33,7 +26,7 @@ class OrderController extends Controller
 
         $data = $this->validate($request, [
             'phone' => 'nullable|min:5|max:16|regex:/^([0-9\-\+])*$/',
-            'description' => 'nullable']);
+            'description' => 'nullable|max:400']);
         $order->fill($data);
         $order->status = 'Awaiting Confirmation';
         if (Auth::check()) {
@@ -52,15 +45,8 @@ class OrderController extends Controller
      */
     public function show(Order $order)
     {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Order $order)
-    {
-        //
+        $order = Order::findOrFail($order->id);
+        return view('orders.show', ['order' => $order]);
     }
 
     /**
@@ -68,7 +54,10 @@ class OrderController extends Controller
      */
     public function update(Request $request, Order $order)
     {
-        //
+        $order->status = $request->input('status');
+        $order->save();
+
+        return redirect()->route('orders.index');
     }
 
     /**

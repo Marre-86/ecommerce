@@ -1,6 +1,6 @@
 @extends('layouts.main')
 @section('content')
-    <div class="cart">
+    <div class="w-60">
         <h2>Your Cart</h2>
         <table class="table table-hover">
             <thead>
@@ -13,7 +13,7 @@
             </thead>
             <tbody>
                 @foreach ($cartItems as $item)
-                <tr class="table-active" style="vertical-align:middle;">
+                <tr class="table-primary" style="vertical-align:middle;">
                     <th scope="row">{{ $item->name }}</th>
                     <td>
                         <form action="{{ route('cart.update') }}" method="POST">
@@ -37,7 +37,7 @@
                 </tr>
                 @endforeach
             </tbody>
-        <table>
+        </table>
         <div style="float:left" >
             <p class="text-primary">Total Price: <b>${{ Cart::getTotal() }}</b></p>
         </div>

@@ -44,6 +44,9 @@
                                         @endforeach
                                     </ul>
                                 </li>
+                                <li class="nav-item">
+                                    <a class="nav-link {{ (Route::current()->getName() == 'orders.index') ? 'active' : '' }}" href="{{ route('orders.index') }}">Orders</a>
+                                </li>
                             </ul>
                             @if  (\Cart::getContent()->isNotEmpty())
                                 <a href="/cart" style="margin-right:1rem">
