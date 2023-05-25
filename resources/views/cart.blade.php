@@ -1,6 +1,12 @@
 @extends('layouts.main')
 @section('content')
     <div class="w-60">
+        @guest            
+            <div class="alert alert-dismissible alert-secondary">
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                We recommend you to  <a href="/register" class="alert-link">register</a> on this app in order to get access to the history of your orders.
+            </div>
+        @endguest
         <h2>Your Cart</h2>
         <table class="table table-hover">
             <thead>

@@ -45,7 +45,12 @@ class OrderController extends Controller
         \Cart::clear();
 
         flash('Order has been successfully created!')->success();
-        return redirect()->route('prodlist');
+
+        if (Auth::user() === null) {
+            return redirect()->route('prodlist');
+        }
+
+        return redirect()->route('orders.index');
     }
 
     /**
@@ -53,6 +58,10 @@ class OrderController extends Controller
      */
     public function show(Order $order)
     {
+        $orderCreatorId = $order->created_by->id ?? 0;
+        if ((Auth::user() === null) or ((Auth::id() !== $orderCreatorId) && (!Auth::user()->hasRole('Admin')))) {
+            abort(403);
+        }
         $order = Order::findOrFail($order->id);
         return view('orders.show', ['order' => $order]);
     }
@@ -73,6 +82,13 @@ class OrderController extends Controller
      */
     public function destroy(Order $order)
     {
-        //
+        if ((Auth::user() === null) or (Auth::id() !== $order->created_by->id) or ($order->status !== 'Awaiting Confirmation')) {   // phpcs:ignore
+            abort(403);
+        }
+        $order = Order::findOrFail($order->id);
+        $order->delete();
+
+        flash('Order has been successfully deleted!')->success();
+        return redirect()->route('orders.index');
     }
 }

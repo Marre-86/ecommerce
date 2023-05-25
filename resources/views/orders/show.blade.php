@@ -1,7 +1,7 @@
 @extends('layouts.main')
 @section('content')
     <div class="w-60">
-        <div class="card text-white bg-info mb-3" style="width: 24rem; float:left; margin-top:2rem">
+        <div class="card text-white bg-info mb-3" style="width: {{ auth()->user()->hasRole('Admin') ? '24rem' : '18rem' }}; float:left; margin-top:2rem">
             <div class="card-header">Order #{{ $order->id }}</div>
             <div class="card-body">
                 <p class="card-text"><span style="color:#495057">Created By: </span>
@@ -11,7 +11,7 @@
                 <p class="card-text" style="float:left; margin-right:1rem"><span style="color:#495057">Status: </span>
                   @hasrole('Admin')
                     <form action="{{ route('orders.update', $order) }}" method="post">
-                            @method('PATCH')              
+                            @method('PATCH')           
                             @csrf                            
                             <select class="form-select" style="width:fit-content; float:left; margin-top:-0.5rem" name="status">
                                 <option {{ ($order->status === 'Awaiting Confirmation' ) ? 'selected' : '' }}>Awaiting Confirmation</option>

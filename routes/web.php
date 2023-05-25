@@ -47,7 +47,4 @@ Route::post('clear', [CartController::class, 'clearAllCart'])->name('cart.clear'
 Route::resource('orders', OrderController::class)->except(['create', 'edit']);
 Route::resource('orders', OrderController::class)->only(['update'])->middleware('can:update-orders');
 
-
-
-
 require __DIR__ . '/auth.php';
