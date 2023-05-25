@@ -9,6 +9,7 @@
                 <p class="card-text"><span style="color:#495057">Creation Date: </span>
                     {{ $order->created_at }}</p>
                 <p class="card-text" style="float:left; margin-right:1rem"><span style="color:#495057">Status: </span>
+                  @hasrole('Admin')
                     <form action="{{ route('orders.update', $order) }}" method="post">
                             @method('PATCH')              
                             @csrf                            
@@ -24,7 +25,10 @@
                                 update
                             </button>
                     </form></p>
-                <p class="card-text"><span style="color:#495057">Contact Phone: </span>
+                  @else
+                    {{ $order->status }}</p>
+                  @endhasrole
+                <p class="card-text" style="clear:both"><span style="color:#495057">Contact Phone: </span>
                     {{ $order->phone ? $order->phone : '' }}</p>
             </div>
         </div>

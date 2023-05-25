@@ -11,26 +11,46 @@ class IndexTest extends TestCase
 {
     use RefreshDatabase;
 
-    public function testCategoriesAreRendered(): void
+    public function testCategoriesAreRenderedForAdmin(): void
     {
         $this->seed();
+
+        $admin = User::factory()->create();
+        $admin->assignRole('Admin');
 
         $category = Category::firstOrFail();
 
         $response = $this
+            ->actingAs($admin)
             ->get(route('category.index'));
 
         $response->assertSee($category->name);
+    }
+
+    public function testCategoriesAreNotRenderedForNotAdmin(): void
+    {
+        $this->seed();
+
+        $user = User::factory()->create();
+
+        $category = Category::firstOrFail();
+
+        $response = $this
+            ->actingAs($user)
+            ->get(route('category.index'));
+
+        $response->assertStatus(403);
     }
 
     public function testCreateFormIsRendered(): void
     {
         $this->seed();
 
-        $user = User::factory()->create();
+        $admin = User::factory()->create();
+        $admin->assignRole('Admin');
 
         $response = $this
-            ->actingAs($user)
+            ->actingAs($admin)
             ->get(route('category.index'));
 
         $response->assertSee('<option value="">Select Parent Category</option>', $escaped = false);

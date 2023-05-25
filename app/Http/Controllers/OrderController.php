@@ -13,7 +13,15 @@ class OrderController extends Controller
      */
     public function index()
     {
-        $orders = Order::orderBy('id', 'desc')->paginate(5);
+        if (Auth::user() === null) {
+            abort(403);
+        }
+        if (Auth::user()->hasRole('Admin')) {
+            $orders = Order::orderBy('id', 'desc')->paginate(5);
+        } else {
+            $orders = Order::where('created_by_id', Auth::user()->id)->orderBy('id', 'desc')->paginate(5);
+        }
+
         return view('orders.index', compact('orders'));
     }
 
@@ -25,7 +33,7 @@ class OrderController extends Controller
         $order = new Order();
 
         $data = $this->validate($request, [
-            'phone' => 'nullable|min:5|max:16|regex:/^([0-9\-\+])*$/',
+            'phone' => 'nullable|min:5|max:16|regex:/^([0-9\-\+\s])*$/',
             'description' => 'nullable|max:400']);
         $order->fill($data);
         $order->status = 'Awaiting Confirmation';

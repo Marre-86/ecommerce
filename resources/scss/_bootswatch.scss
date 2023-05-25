@@ -67,3 +67,16 @@ $web-font-path: "https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&di
   .text-center {
     text-align:center;
   }
+
+  .admin-menu {
+    color:$yellow;
+  }
+
+  .admin-menu:hover{
+    color:#ef933e;
+  }
+
+  .admin-menu-active, .admin-menu-active:hover{
+    color:$primary;
+  }
+
