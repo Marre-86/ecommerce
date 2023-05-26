@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ItemController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\OrderController;
 use App\Models\Category;
@@ -37,6 +38,8 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::resource('category', CategoryController::class)->middleware('can:manage-categories');
+
+Route::resource('items', ItemController::class)->middleware('can:manage-products');
 
 Route::get('cart', [CartController::class, 'cartList'])->name('cart.list');
 Route::post('cart', [CartController::class, 'addToCart'])->name('cart.store');

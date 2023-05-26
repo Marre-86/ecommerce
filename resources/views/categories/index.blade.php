@@ -2,7 +2,7 @@
 @section('content')
         <div class="row">
             <div class="col-md-4">
-              <div class="card">
+              <div class="card" style="margin-bottom:1rem">
                 <div class="card-header">
                   <h3>Categories</h3>
                 </div>

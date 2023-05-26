@@ -36,10 +36,13 @@
                                         @endforeach
                                     </ul>
                                 </li>
-                                <li class="nav-item"">
+                                <li class="nav-item">
                                     <a class="nav-link {{ (Route::current()->getName() == 'prodlist') ? 'active' : '' }}" href="{{ route('prodlist') }}">Products</a>
                                 </li>
                                 @hasrole('Admin')
+                                <li class="nav-item">
+                                    <a class="nav-link {{ (Route::current()->getName() == 'items.index') ? 'admin-menu-active' : '' }} admin-menu" href="{{ route('items.index') }}">Manage Products</a>
+                                </li>
                                 <li class="nav-item">
                                     <a class="nav-link  {{ (Route::current()->getName() == 'category.index') ? 'admin-menu-active' : '' }} admin-menu" href="{{ route('category.index') }}">Manager Cat
                                         <span class="visually-hidden">(current)</span>

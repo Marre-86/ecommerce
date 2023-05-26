@@ -1,12 +1,16 @@
 @extends('layouts.main')
 @section('content')
     <div class="w-60">
-        @hasrole('Admin')
-            <h2>List of Orders</h2>
-        @else
-            <h2>Your Orders</h2>
-        @endhasrole
-        <table class="table table-hover">
+      <div class="card" style="margin-bottom:1rem; min-width:fit-content;">
+        <div class="card-header">
+            @hasrole('Admin')
+                <h3>List of Orders</h3>
+            @else
+                <h3>Your Orders</h3>
+            @endhasrole
+        </div>
+        <div style="padding: 1rem 0.5rem 0 0.5rem">
+          <table class="table table-hover">
             <thead>
                 <tr class="text-center" >
                     <th scope="col" style="width:22%">Creation Date</th>
@@ -41,7 +45,9 @@
                     @php $counter++; @endphp
                 @endforeach
             </tbody>
-        </table>
-        {{ $orders->links() }}
+          </table>
+          {{ $orders->links() }}
+        </div>
+      </div>
     </div>
 @endsection

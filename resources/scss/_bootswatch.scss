@@ -64,6 +64,15 @@ $web-font-path: "https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&di
     }
   }
 
+  .w-80 {
+    width:80%;
+  }
+  @media (max-width: 1250px) {
+    .w-60 {
+      width:100%;
+    }
+  }
+
   .text-center {
     text-align:center;
   }
