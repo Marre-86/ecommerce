@@ -17,14 +17,14 @@ class DestroyTest extends TestCase
 
         $user = User::where('id', 2)->first();
 
-        $order = Order::where('id', 3)->firstOrFail();
+        $order = Order::where('id', 6)->firstOrFail();
 
         $response = $this
             ->actingAs($user)
             ->delete(route('orders.destroy', $order));
 
         $response->assertSessionHas('flash_notification.0.message', 'Order has been successfully deleted!');
-        $this->assertDatabaseMissing('orders', ['phone' => '0378 612 723']);
+        $this->assertDatabaseMissing('orders', ['phone' => '0312 612 321']);
     }
 
     public function testOrderOfAnotherCreatorIsNotDeletedFromDatabase(): void

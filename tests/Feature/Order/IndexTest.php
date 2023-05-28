@@ -48,7 +48,7 @@ class IndexTest extends TestCase
 
         $user = User::where('id', 2)->first();
 
-        $order = Order::where('id', 7)->firstOrFail();
+        $order = Order::where('id', 2)->firstOrFail();
 
         $response = $this
             ->actingAs($user)

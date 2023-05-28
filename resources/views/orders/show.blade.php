@@ -1,6 +1,6 @@
 @extends('layouts.main')
 @section('content')
-    <div class="w-60">
+    <div class="w-80">
         <div class="card text-white bg-info mb-3" style="width: {{ auth()->user()->hasRole('Admin') ? '24rem' : '18rem' }}; float:left; margin-top:2rem">
             <div class="card-header">Order #{{ $order->id }}</div>
             <div class="card-body">
@@ -41,32 +41,36 @@
         </div>
         @endif
 
-        <h5 style="clear:both;">List of Products in the Order</h5>
+
+        <div class="card" style="margin-bottom:1rem; min-width:fit-content;clear:both">
+            <div class="card-header">
+                <h5 style="clear:both;">List of Products in the Order</h5>
+            </div>
+            <div style="padding: 1rem 0.5rem 0 0.5rem">
+
         
         <table class="table table-hover">
             <thead>
-                <tr class="text-center" >
-                    <th scope="col" style="width:22%">Creation Date</th>
-                    <th scope="col" style="width:25%">Created By</th>
-                    <th scope="col">Items</th>
+                <tr class="text-center" style="vertical-align: middle">
+                    <th scope="col">Name</th>
+                    <th scope="col">Category</th>
+                    <th scope="col">Quantity</th>
                     <th scope="col">Price</th>
-                    <th scope="col" style="width:25%">Status</th>
+                    <th scope="col">Current Price</th>
                 </tr>
             </thead>
             <tbody>
-                        <?php /*    @php $counter = 0; @endphp
-                        @foreach ($orders as $order)
-                         @php $class = $counter % 2 === 0 ? 'table-active' : 'table-default'; @endphp  */ ?> 
-                    <tr class="<?php /* {{ $class }}*/ ?>  text-center" onclick="window.location='{{ route('orders.show', $order) }}';" style="cursor: pointer; vertical-align:middle;">
-                        <td></td>
-                        <td></td>
-                        <td>3</td>
-                        <td>99$</td>
-                        <td></td>
+                        @foreach ($order->products as $product)
+                    <tr class="table-active text-center" style="vertical-align: middle">
+                        <td>{{ $product->name }}</td>
+                        <td>{{ $product->getCategoryNameWithAllParents() }}</td>
+                        <td>{{ $product->pivot->quantity }}</td>
+                        <td style="white-space: nowrap;">{{ number_format($product->pivot->price, 2) }} $</td>
+                        <td style="white-space: nowrap;">{{ number_format($product->price, 2) }} $</td>
                     </tr>
-                    <?php /*      @php $counter++; @endphp
-                         @endforeach */ ?> 
+                         @endforeach 
             </tbody>
         </table>
+        </div></div>
     </div>
 @endsection

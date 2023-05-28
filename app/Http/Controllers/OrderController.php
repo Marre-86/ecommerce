@@ -31,7 +31,7 @@ class OrderController extends Controller
     public function store(Request $request)
     {
         $order = new Order();
-
+//dd($request);
         $data = $this->validate($request, [
             'phone' => 'nullable|min:5|max:16|regex:/^([0-9\-\+\s])*$/',
             'description' => 'nullable|max:400']);
@@ -43,6 +43,8 @@ class OrderController extends Controller
         $order->save();
 
         \Cart::clear();
+
+        $order->products()->attach($request->input('items'));
 
         flash('Order has been successfully created!')->success();
 
@@ -86,6 +88,7 @@ class OrderController extends Controller
             abort(403);
         }
         $order = Order::findOrFail($order->id);
+        $order->products()->detach();
         $order->delete();
 
         flash('Order has been successfully deleted!')->success();

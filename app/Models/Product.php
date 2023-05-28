@@ -59,4 +59,9 @@ class Product extends Model
             get: fn (string $value) => date('Y-m-d | H:i', strtotime($value)),
         );
     }
+
+    public function orders()
+    {
+        return $this->belongsToMany('App\Models\Order');
+    }
 }

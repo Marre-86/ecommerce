@@ -10,10 +10,18 @@ class CartController extends Controller
     {
 
         $cartItems = \Cart::getContent()->sort();
+
+        $itemsToAttachToOrder = [];
+        foreach ($cartItems as $cartItem) {
+            $itemToAttachToOrderId = $cartItem->id;
+            $itemToAttachToOrderData = ['quantity' => $cartItem->quantity, 'price' => $cartItem->price,];
+            $itemsToAttachToOrder[$itemToAttachToOrderId] = $itemToAttachToOrderData;
+        }
+
         if ($cartItems->isEmpty()) {
             return redirect()->route('prodlist');
         }
-        return view('cart', compact('cartItems'));
+        return view('cart', ['cartItems' => $cartItems, 'itemsToAttachToOrder' => $itemsToAttachToOrder]);
     }
 
 

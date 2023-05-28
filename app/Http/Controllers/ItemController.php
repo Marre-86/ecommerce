@@ -92,6 +92,12 @@ class ItemController extends Controller
     public function destroy(Product $item)
     {
         $item = Product::findOrFail($item->id);
+
+        if ($item->orders->isNotEmpty()) {
+            flash('Item can\'t be deleted because it has been ordered at least once!')->error();
+            return redirect()->route('items.index');
+        }
+
         $item->delete();
 
         flash('Item has been successfully deleted!')->success();

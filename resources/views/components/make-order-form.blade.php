@@ -16,6 +16,10 @@
                         </div>
                     @endif
                 </div>
+                @foreach ($itemsToAttachToOrder as $id => $data)
+                    <input type="hidden" name="items[{{ $id }}][price]" value="{{ $data['price'] }}">
+                    <input type="hidden" name="items[{{ $id }}][quantity]" value="{{ $data['quantity'] }}">
+                @endforeach
                 <label for="description" class="form-label mt-4">Below you can make any comments related to your order, including contact information</label>
                 <textarea class="form-control" name="description" rows="3">{{ old('description') }}</textarea>
             </div>    

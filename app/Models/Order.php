@@ -23,4 +23,9 @@ class Order extends Model
             get: fn (string $value) => date('Y-m-d | H:i', strtotime($value)),
         );
     }
+
+    public function products()
+    {
+        return $this->belongsToMany('App\Models\Product')->withPivot('price', 'quantity');
+    }
 }

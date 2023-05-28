@@ -27,8 +27,8 @@
                     <tr class="{{ $class }} text-center" onclick="if (!event.target.closest('a')) { window.location='{{ route('orders.show', $order) }}'; }" style="cursor: pointer; vertical-align:middle;">
                         <td>{{ $order->created_at }}</td>
                         <td>{{ $order->created_by ? $order->created_by->name : 'guest' }}</td>
-                        <td>3</td>
-                        <td>99$</td>
+                        <td>{{ $order->products()->count() }}</td>
+                        <td>{{ number_format($order->products()->sum('order_product.price'), 2) }} $</td>
                         <td>
                             <div class="d-flex justify-content-between" >
                                 {{ $order->status }}

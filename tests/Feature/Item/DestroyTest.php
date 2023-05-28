@@ -18,7 +18,7 @@ class DestroyTest extends TestCase
         $admin = User::factory()->create();
         $admin->assignRole('Admin');
 
-        $item = Product::where('category_id', 7)->first();
+        $item = Product::find(24);
 
         $response = $this
             ->actingAs($admin)
@@ -34,7 +34,7 @@ class DestroyTest extends TestCase
 
         $user = User::factory()->create();
 
-        $item = Product::where('category_id', 7)->first();
+        $item = Product::find(24);
 
         $response = $this
             ->actingAs($user)
@@ -47,11 +47,29 @@ class DestroyTest extends TestCase
     {
         $this->seed();
 
-        $item = Product::where('category_id', 7)->first();
+        $item = Product::find(24);
 
         $response = $this
             ->delete(route('items.destroy', $item));
 
         $response->assertStatus(403);
+    }
+
+    public function testItemThatWasOrderedCannotBeDeleted(): void
+    {
+        $this->seed();
+
+        $admin = User::factory()->create();
+        $admin->assignRole('Admin');
+
+        $item = Product::has('orders')->first();
+
+        $response = $this
+            ->actingAs($admin)
+            ->delete(route('items.destroy', $item));
+
+        $response->assertRedirectToRoute('items.index');
+        $response->assertSessionHas('flash_notification.0.message', 'Item can\'t be deleted because it has been ordered at least once!');   //   phpcs:ignore
+        $this->assertDatabaseHas('products', ['id' => $item->id]);
     }
 }
