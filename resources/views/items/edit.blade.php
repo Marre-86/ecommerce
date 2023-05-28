@@ -7,10 +7,10 @@
         </div>
 
         <div class="card-body">
-            {{ Form::model($item, ['route' => 'items.store']) }}
+            {{ Form::model($item, ['route' => ['items.update', $item], 'method' => 'PATCH']) }}
                 @include('items.form')
                 <div class="mt-2">
-                    {{ Form::submit('Create Item', ['class' => 'btn btn-primary']) }}
+                    {{ Form::submit('Update Item', ['class' => 'btn btn-primary']) }}
                 </div>
             {{ Form::close() }}
         </div>

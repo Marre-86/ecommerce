@@ -72,14 +72,29 @@ class ItemController extends Controller
      */
     public function update(Request $request, Product $item)
     {
-        //
+        $item = Product::findOrFail($item->id);
+
+        $data = $this->validate($request, [
+            'name' => 'min:3|max:64|unique:products,name,' . $item->id,
+            'category_id' => 'required',
+            'price' => 'required',
+            'description' => 'nullable|max:400']);
+        $item->fill($data);
+        $item->save();
+
+        flash('Item has been successfully updated!')->success();
+        return redirect()->route('items.index');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Product $item)
     {
-        //
+        $item = Product::findOrFail($item->id);
+        $item->delete();
+
+        flash('Item has been successfully deleted!')->success();
+        return redirect()->route('items.index');
     }
 }
