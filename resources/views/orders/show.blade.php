@@ -56,19 +56,26 @@
                     <th scope="col">Category</th>
                     <th scope="col">Quantity</th>
                     <th scope="col">Price</th>
-                    <th scope="col">Current Price</th>
+                    <th scope="col">Total Price</th>
                 </tr>
             </thead>
             <tbody>
                         @foreach ($order->products as $product)
-                    <tr class="table-active text-center" style="vertical-align: middle">
+                    <tr class="table-secondary text-center" style="vertical-align: middle">
                         <td>{{ $product->name }}</td>
                         <td>{{ $product->getCategoryNameWithAllParents() }}</td>
                         <td>{{ $product->pivot->quantity }}</td>
                         <td style="white-space: nowrap;">{{ number_format($product->pivot->price, 2) }} $</td>
-                        <td style="white-space: nowrap;">{{ number_format($product->price, 2) }} $</td>
+                        <td style="white-space: nowrap;">{{ number_format($product->pivot->quantity * $product->pivot->price, 2) }} $</td>
                     </tr>
-                         @endforeach 
+                         @endforeach
+                    <tr class="table-active text-center" style="vertical-align: middle; font-weight: bold">
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>Total Cost:</td>
+                        <td style="white-space: nowrap;">{{ number_format($order->products()->selectRaw('SUM(order_product.price * order_product.quantity) as total_price')->pluck('total_price')->first(), 2) }} $</td>
+                    </tr>
             </tbody>
         </table>
         </div></div>

@@ -28,7 +28,8 @@
                         <td>{{ $order->created_at }}</td>
                         <td>{{ $order->created_by ? $order->created_by->name : 'guest' }}</td>
                         <td>{{ $order->products()->count() }}</td>
-                        <td>{{ number_format($order->products()->sum('order_product.price'), 2) }} $</td>
+                        <td>{{ number_format($order->products()->selectRaw('SUM(order_product.price * order_product.quantity) as total_price')->pluck('total_price')->first(), 2) }} $
+                        </td>
                         <td>
                             <div class="d-flex justify-content-between" >
                                 {{ $order->status }}

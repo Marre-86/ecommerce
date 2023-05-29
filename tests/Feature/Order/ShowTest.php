@@ -19,6 +19,7 @@ class ShowTest extends TestCase
         $admin->assignRole('Admin');
 
         $order = Order::where('id', 7)->firstOrFail();
+        $orderTotalPrice = number_format($order->products()->selectRaw('SUM(order_product.price * order_product.quantity) as total_price')->pluck('total_price')->first(), 2);   // phpcs:ignore
 
         $response = $this
             ->actingAs($admin)
@@ -26,6 +27,7 @@ class ShowTest extends TestCase
 
         $response->assertOk();
         $response->assertSee($order->description);
+        $response->assertSee('<td style="white-space: nowrap;">' . $orderTotalPrice . ' $</td>', false);
     }
 
     public function testOrderIsNotRenderedForGuest(): void

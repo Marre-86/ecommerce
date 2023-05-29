@@ -52,7 +52,7 @@ class OrdersTableSeeder extends Seeder
             'created_by_id' => 2,
             'status' => 'Awaiting Confirmation',
             'description' => 'A present for my beloved granny. Hope she likes this stuff. If not - I\'m going to return it',
-            'phone' => '0312 612 459',
+            'phone' => '0312 612 321',
         ]);
 
         Order::create([
