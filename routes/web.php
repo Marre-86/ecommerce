@@ -7,6 +7,7 @@ use App\Http\Controllers\ItemController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\OrderController;
 use App\Models\Category;
+use App\Helpers\processFiles;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,7 +21,9 @@ use App\Models\Category;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $pathToDirectoryWithJsonSamples = __DIR__ . '/../resources/api_json_samples';
+    $jsonSamples = processFiles($pathToDirectoryWithJsonSamples);
+    return view('welcome', ['jsonSamples' => $jsonSamples ]);
 });
 
 Route::get('/products', function () {

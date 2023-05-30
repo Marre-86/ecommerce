@@ -89,3 +89,24 @@ $web-font-path: "https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&di
     color:$primary;
   }
 
+  .code {
+    border: 2px solid #e9ecef;
+    border-radius: 5px;
+    margin-bottom: 4rem;
+    max-width: 100%;
+    overflow-x: auto;
+  }
+
+  .acc-code {
+    border: 2px solid #e9ecef;
+    margin-top: 2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .acc-header-content {
+    display: inline;
+  }
+  
+  .acc-header-text {
+    margin-top: 5px; /* Adjust the margin as needed */
+  }

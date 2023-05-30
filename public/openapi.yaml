@@ -109,37 +109,37 @@ paths:
             type: string
         - name: filter[category_id]
           in: query
-          description: Selection of the houses with requested category_id
+          description: Selection of the products with requested category_id
           required: false
           schema:
             type: integer
         - name: filter[price-gte]
           in: query
-          description: Selection of the houses without those whose price is greater than requested
+          description: Selection of the products whose price is greater than requested
           required: false
           schema:
             type: number
         - name: filter[price-lte]
           in: query
-          description: Selection of the houses without those whose price is lower than requested
+          description: Selection of the products whose price is lower than requested
           required: false
           schema:
             type: number
         - name: filter[weight]
           in: query
-          description: Selection of the houses with requested weight
+          description: Selection of the products with requested weight
           required: false
           schema:
             type: number
         - name: filter[length]
           in: query
-          description: Selection of the houses with requested length
+          description: Selection of the products with requested length
           required: false
           schema:
             type: number
         - name: filter[width]
           in: query
-          description: Selection of the houses with requested width
+          description: Selection of the products with requested width
           required: false
           schema:
             type: integer

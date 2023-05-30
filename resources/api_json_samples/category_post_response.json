@@ -1,0 +1,10 @@
+{
+    "success": true,
+    "data": {
+        "id": 12,
+        "name": "Raincoats",
+        "parent_id": 10,
+        "grandparent_id": 2
+    },
+    "message": "Category added successfully."
+}

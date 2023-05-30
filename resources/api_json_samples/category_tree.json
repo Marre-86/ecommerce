@@ -1,0 +1,34 @@
+{
+    "success": true,
+    "data": [
+        {
+            "id": 1,
+            "name": "Women",
+            "parent_id": null,
+            "grandparent_id": null,
+            "children": [
+                {
+                    "id": 5,
+                    "name": "Shoes",
+                    "parent_id": 1,
+                    "grandparent_id": null,
+                    "children": [
+                        {
+                            "id": 9,
+                            "name": "Winklepickers",
+                            "parent_id": 5,
+                            "grandparent_id": 1
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "name": "Children",
+            "parent_id": null,
+            "grandparent_id": null
+        }
+    ],
+    "message": "Categories retrieved successfully."
+}
