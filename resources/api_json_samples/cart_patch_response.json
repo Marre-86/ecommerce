@@ -1,0 +1,16 @@
+{
+    "success": true,
+    "data": {
+        "4": {
+            "id": 4,
+            "name": "DREAM PAIRS Women's High Stilettos Heels",
+            "price": 12.9,
+            "quantity": 4,
+            "attributes": {
+                "image": null
+            },
+            "conditions": []
+        }
+    },
+    "message": "Product has been updated in the cart successfully. Updated cart is returned"
+}

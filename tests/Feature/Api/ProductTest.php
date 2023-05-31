@@ -4,10 +4,7 @@ namespace Tests\Feature\Api;
 
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use App\Models\Product;
 use Spectator\Spectator;
-use Database\Seeders\ProductsTableSeeder;
-use Laravel\Sanctum\Sanctum;
 use Illuminate\Testing\Fluent\AssertableJson;
 
 class ProductTest extends TestCase

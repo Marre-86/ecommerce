@@ -1,0 +1,16 @@
+{
+    "success": true,
+    "data": {
+        "2": {
+            "id": 2,
+            "name": "Vince Camuto Women's Hamden Slingback Pump",
+            "price": 86.12,
+            "quantity": 10,
+            "attributes": {
+                "image": null
+            },
+            "conditions": []
+        }
+    },
+    "message": "Cart content retrieved successfully."
+}

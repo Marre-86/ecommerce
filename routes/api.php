@@ -28,4 +28,8 @@ Route::controller('App\Http\Controllers\Api\V1\RegisterController')->group(funct
 
 Route::middleware('auth:sanctum')->group(function () {
     Route::post('category', 'App\Http\Controllers\Api\V1\CategoryController@store');
+    Route::get('cart', 'App\Http\Controllers\Api\V1\CartController@cartList');
+    Route::post('cart', 'App\Http\Controllers\Api\V1\CartController@addToCart');
+    Route::patch('cart', 'App\Http\Controllers\Api\V1\CartController@updateCart');
+    Route::delete('cart', 'App\Http\Controllers\Api\V1\CartController@removeProduct');
 });

@@ -11,6 +11,43 @@
             <p style="margin-left:2rem">Below there is a list of API requests you can send to this service.</p>
 
             <div class="accordion" id="accordionExample">
+
+                <div class="acc-code">
+                    <p class="accordion-header" id="headingFour">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                          <div class="acc-header-content">
+                            <span class="text-primary">POST api/v1/register</span>
+                            <span class="acc-header-text">&nbsp;– sign up for this application. Example of the request:</span>
+                          </div>
+                        </button>
+                    </p>
+                    <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <pre class="code"><code class="language-json">{{ $jsonSamples['register_request'] }}</code></pre>
+                            <p>Example of the response:</p> 
+                            <pre class="code"><code class="language-json">{{ $jsonSamples['register_response'] }}</code></pre>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="acc-code">
+                    <p class="accordion-header" id="headingFive">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                          <div class="acc-header-content">
+                            <span class="text-primary">POST /api/v1/login</span>
+                            <span class="acc-header-text">&nbsp;– log in to this application. Example of the request:</span>
+                          </div>
+                        </button>
+                    </p>
+                    <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <pre class="code"><code class="language-json">{{ $jsonSamples['login_request'] }}</code></pre>
+                            <p>Example of the response:</p> 
+                            <pre class="code"><code class="language-json">{{ $jsonSamples['login_response'] }}</code></pre>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="acc-code">
                     <p class="accordion-header" id="headingOne">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
@@ -72,37 +109,71 @@
                 </div>
 
                 <div class="acc-code">
-                    <p class="accordion-header" id="headingFour">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                          <div class="acc-header-content">
-                            <span class="text-primary">POST api/v1/register</span>
-                            <span class="acc-header-text">&nbsp;– sign up for this application. Example of the request:</span>
+                    <p class="accordion-header" id="headingSix">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                          <div class="acc-header-content">    
+                            <span class="text-primary">GET /api/v1/cart</span>
+                            <span class="acc-header-text">&nbsp;– returns the content of the shopping cart. Requires authorization. Example of the response:</span>
                           </div>
                         </button>
                     </p>
-                    <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
+                    <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix" data-bs-parent="#accordionExample">
                         <div class="accordion-body">
-                            <pre class="code"><code class="language-json">{{ $jsonSamples['register_request'] }}</code></pre>
-                            <p>Example of the response:</p> 
-                            <pre class="code"><code class="language-json">{{ $jsonSamples['register_response'] }}</code></pre>
+                            <pre class="code"><code class="language-json">{{ $jsonSamples['cart_get_response'] }}</code></pre>
                         </div>
                     </div>
                 </div>
 
                 <div class="acc-code">
-                    <p class="accordion-header" id="headingFive">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-                          <div class="acc-header-content">
-                            <span class="text-primary">POST /api/v1/login</span>
-                            <span class="acc-header-text">&nbsp;– log in to this application. Example of the request:</span>
+                    <p class="accordion-header" id="headingSeven">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+                          <div class="acc-header-content">    
+                            <span class="text-primary">POST /api/v1/cart</span>
+                            <span class="acc-header-text">&nbsp;– adds a product with specified id into the cart. Requires authorization. Example of the request:</span>
                           </div>
                         </button>
                     </p>
-                    <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#accordionExample">
+                    <div id="collapseSeven" class="accordion-collapse collapse" aria-labelledby="headingSeven" data-bs-parent="#accordionExample">
                         <div class="accordion-body">
-                            <pre class="code"><code class="language-json">{{ $jsonSamples['login_request'] }}</code></pre>
-                            <p>Example of the response:</p> 
-                            <pre class="code"><code class="language-json">{{ $jsonSamples['login_response'] }}</code></pre>
+                            <pre class="code"><code class="language-json">{{ $jsonSamples['cart_post_request'] }}</code></pre>
+                            <p>If quantity hasn't been specified, one item will be added.<br>Returns updated content of the cart. Example of the response:</p> 
+                            <pre class="code"><code class="language-json">{{ $jsonSamples['cart_post_response'] }}</code></pre>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="acc-code">
+                    <p class="accordion-header" id="headingEight">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
+                          <div class="acc-header-content">    
+                            <span class="text-primary">PATCH /api/v1/cart</span>
+                            <span class="acc-header-text">&nbsp;– updates the quantity of a product with specified id into the cart. Requires authorization. Example of the request:</span>
+                          </div>
+                        </button>
+                    </p>
+                    <div id="collapseEight" class="accordion-collapse collapse" aria-labelledby="headingEight" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <pre class="code"><code class="language-json">{{ $jsonSamples['cart_patch_request'] }}</code></pre>
+                            <p>If "0" is specified as quantity of an updated product, then it will be removed from the cart.<br>Returns updated content of the cart. Example of the response:</p> 
+                            <pre class="code"><code class="language-json">{{ $jsonSamples['cart_patch_response'] }}</code></pre>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="acc-code">
+                    <p class="accordion-header" id="headingNine">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseNine" aria-expanded="false" aria-controls="collapseNine">
+                          <div class="acc-header-content">    
+                            <span class="text-primary">DELETE /api/v1/cart</span>
+                            <span class="acc-header-text">&nbsp;– removes product with specified id from the cart. Requires authorization. Example of the request:</span>
+                          </div>
+                        </button>
+                    </p>
+                    <div id="collapseNine" class="accordion-collapse collapse" aria-labelledby="headingNine" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <pre class="code"><code class="language-json">{{ $jsonSamples['cart_delete_request'] }}</code></pre>
+                            <p>Returns updated content of the cart. Example of the response:</p> 
+                            <pre class="code"><code class="language-json">{{ $jsonSamples['cart_delete_response'] }}</code></pre>
                         </div>
                     </div>
                 </div>

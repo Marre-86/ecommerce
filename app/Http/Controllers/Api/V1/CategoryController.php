@@ -34,6 +34,5 @@ class CategoryController extends BaseController
         }
 
         return $this->sendResponse($newCategory, 'Category added successfully.', 201);
-        return response()->json($newCategory, 201);
     }
 }
