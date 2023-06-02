@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ItemController;
@@ -20,7 +21,8 @@ use App\Helpers\processFiles;
 |
 */
 
-Route::get('/', function () {
+Route::get('/', function (Request $request) {
+    \Log::info($request->ip() ? "Посещение главной с IP-адреса " . $request->ip() : 'no_IP_was_discovered');
     $pathToDirectoryWithJsonSamples = __DIR__ . '/../resources/api_json_samples';
     $jsonSamples = processFiles($pathToDirectoryWithJsonSamples);
     return view('welcome', ['jsonSamples' => $jsonSamples ]);

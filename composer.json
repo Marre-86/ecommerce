@@ -15,6 +15,7 @@
         "laravel/tinker": "^2.8",
         "laravelcollective/html": "^6.4",
         "league/fractal": "^0.20.1",
+        "rollbar/rollbar-laravel": "^8.0",
         "spatie/laravel-permission": "^5.10",
         "spatie/laravel-sluggable": "^3.4"
     },

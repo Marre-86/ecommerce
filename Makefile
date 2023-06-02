@@ -7,7 +7,7 @@ start:
 migrate:
 	php artisan migrate --force
 seed:
-	php artisan db:seed --class=HousesTableSeeder --force
+	php artisan db:seed --force
 install:
 	composer install
 validate:

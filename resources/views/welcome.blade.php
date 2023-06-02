@@ -5,10 +5,12 @@
 <div class="w-60">
     <div class="card" style="margin-bottom:1rem; min-width:fit-content;">
         <div class="card-header">
-                <h3>Main Page</h3>
+                <h3>About this project</h3>
         </div>
         <div style="padding: 2rem 0.5rem 0 0.5rem; overflow: auto">
-            <p style="margin-left:2rem">Below there is a list of API requests you can send to this service.</p>
+            @include('components.description')
+            <hr>
+            <h5 class="intro"><b>The list of API endpoints:</b></h5>
 
             <div class="accordion" id="accordionExample">
 

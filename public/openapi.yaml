@@ -1,6 +1,6 @@
 openapi: 3.0.0
 info:
-  title: Pokhiliuk Ecommerce API
+  title: Manul Shop
   description: Artem Pokhiliuk's training progect 
   version: 1.0.0
 servers:
