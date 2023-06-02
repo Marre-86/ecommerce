@@ -31,5 +31,9 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('cart', 'App\Http\Controllers\Api\V1\CartController@cartList');
     Route::post('cart', 'App\Http\Controllers\Api\V1\CartController@addToCart');
     Route::patch('cart', 'App\Http\Controllers\Api\V1\CartController@updateCart');
-    Route::delete('cart', 'App\Http\Controllers\Api\V1\CartController@removeProduct');
+    Route::delete('cart/{item}', 'App\Http\Controllers\Api\V1\CartController@removeProduct');
+    Route::post('orders', 'App\Http\Controllers\Api\V1\OrderController@store');
+    Route::get('orders', 'App\Http\Controllers\Api\V1\OrderController@index');
+    Route::get('orders/{order}', 'App\Http\Controllers\Api\V1\OrderController@show');
+    Route::delete('orders/{order}', 'App\Http\Controllers\Api\V1\OrderController@delete');
 });

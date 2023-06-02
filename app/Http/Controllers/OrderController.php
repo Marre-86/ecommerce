@@ -31,9 +31,9 @@ class OrderController extends Controller
     public function store(Request $request)
     {
         $order = new Order();
-//dd($request);
+
         $data = $this->validate($request, [
-            'phone' => 'nullable|min:5|max:16|regex:/^([0-9\-\+\s])*$/',
+            'phone' => 'nullable|min:5|max:16|regex:/^([0-9\(\)\-\+\s])*$/',
             'description' => 'nullable|max:400']);
         $order->fill($data);
         $order->status = 'Awaiting Confirmation';

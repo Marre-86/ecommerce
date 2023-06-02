@@ -41,40 +41,11 @@ class RemoveItemTest extends TestCase
 
         $response = $this->withHeaders([
             'Authorization' => 'Bearer #token#'
-        ])->deleteJson('/api/v1/cart', ['id' => 2]);
+        ])->deleteJson('/api/v1/cart/2');
 
         $response->assertJson([
             'message' => 'Product has been deleted from the cart successfully. Updated cart is returned'
         ])->assertStatus(200);
-    }
-
-    public function testFailsWhenItemIdIsNotSpecified(): void
-    {
-        Sanctum::actingAs(
-            User::factory()->create(),
-            ['*']
-        );
-
-        $itemToAdd = [
-            'id' => 2,
-            'quantity' => 10
-        ];
-
-        $this->withHeaders([
-            'Authorization' => 'Bearer #token#'
-        ])->postJson('/api/v1/cart', $itemToAdd);
-
-        // отключаем валидацию реквеста, поскольку смысл теста - именно проверить не соответсующий API реквест
-        $this->withoutRequestValidation();
-        $response = $this->withHeaders([
-            'Authorization' => 'Bearer #token#'
-        ])->deleteJson('/api/v1/cart');
-
-        $response->assertJson([
-            'data' => [
-                'error' => 'ID of the removed product should be specified',
-            ],
-        ])->assertStatus(400);
     }
 
     public function testFailsWhenItemIsNotInTheCart(): void
@@ -95,7 +66,7 @@ class RemoveItemTest extends TestCase
 
         $response = $this->withHeaders([
             'Authorization' => 'Bearer #token#'
-        ])->deleteJson('/api/v1/cart', ['id' => 3]);
+        ])->deleteJson('/api/v1/cart/3');
 
         $response->assertJson([
             'data' => [
@@ -107,11 +78,7 @@ class RemoveItemTest extends TestCase
     public function testFailsWhenNotAuthorized(): void
     {
 
-        $itemToAdd = [
-            'id' => 2,
-        ];
-
-        $response = $this->deleteJson('/api/v1/cart', $itemToAdd);
+        $response = $this->deleteJson('/api/v1/cart/2');
 
         $response
             ->assertStatus(401);

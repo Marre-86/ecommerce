@@ -1,0 +1,7 @@
+{
+    "success": false,
+    "message": "Forbidden.",
+    "data": {
+        "error": "Order deletion not allowed. The order has been confirmed and cannot be deleted."
+    }
+}

@@ -1,0 +1,24 @@
+{
+    "success": true,
+    "data": {
+        "id": 16,
+        "created_by_id": 2,
+        "status": "Awaiting Confirmation",
+        "description": "Delivery for John Doe. Address: 123 Main Street. Instructions: Please leave the package at the front door.",
+        "phone": "(555) 123-4567",
+        "created_at": "2023-06-02 | 08:51",
+        "price": "629.93",
+        "items": 1,
+        "products": [
+            {
+                "id": 3,
+                "name": "Franco Sarto Women's Milano Pointed Toe Slingback Pump",
+                "category": "Women/Shoes/Slingbacks",
+                "quantity": 7,
+                "price": "89.99",
+                "total_price": "629.93"
+            }
+        ]
+    },
+    "message": "Order retrieved successfully."
+}

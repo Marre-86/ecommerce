@@ -14,13 +14,22 @@ class StoreTest extends TestCase
     public function testOrderIsStoredIntoDatabase(): void
     {
         $this->seed();
-
+        $productData = [
+            3 => [
+                'price' => 89.90,
+                'quantity' => 8
+            ]
+        ];
         $response = $this
-            ->post(route('orders.store'), ['phone' => '+7-913-717', 'description' => 'Some text']);
+            ->post(route('orders.store'), ['phone' => '+7-913-717', 'description' => 'Some text',
+                                            'items' => $productData ]);
 
         $response->assertRedirectToRoute('prodlist');
         $this->assertDatabaseHas('orders', [
             'phone' => '+7-913-717', 'description' => 'Some text', 'status' => 'Awaiting Confirmation'
+        ]);
+        $this->assertDatabaseHas('order_product', [
+            'product_id' => 3, 'quantity' => 8, 'price' => 89.90
         ]);
     }
 
@@ -31,7 +40,7 @@ class StoreTest extends TestCase
         $response = $this
             ->post(route('orders.store'), ['phone' => '+7-913-717d', 'description' => 'Some text']);
 
-            $response->assertInvalid(['phone']);
+        $response->assertInvalid(['phone']);
     }
 
     public function testCreatorIdIsAttachedToStoredOrder(): void

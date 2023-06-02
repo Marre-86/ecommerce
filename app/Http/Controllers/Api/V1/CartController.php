@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Api\V1;
 use App\Http\Controllers\Api\V1\BaseController;
 use Illuminate\Http\Request;
 use App\Models\Product;
-use App\Models\Category;
 
 class CartController extends BaseController
 {
@@ -92,21 +91,17 @@ class CartController extends BaseController
         return $this->sendResponse($cartItems, 'Product has been updated in the cart successfully. Updated cart is returned');   // phpcs:ignore
     }
 
-    public function removeProduct(Request $request)
+    public function removeProduct(Product $item, Request $request)
     {
         $authorizationHeader = $request->header('Authorization');
         \Cart::session(substr($authorizationHeader, 7));
 
-        if (!$request->has('id')) {
-            return $this->sendError('Bad request.', ['error' => 'ID of the removed product should be specified'], 400);
-        }
-
-        $updatedItem = \Cart::get($request->input('id'));
-        if ($updatedItem === null) {
+        $removedItem = \Cart::get($item->id);
+        if ($removedItem === null) {
             return $this->sendError('Bad request.', ['error' => 'Product with requested id is not found in the Cart'], 400);   // phpcs:ignore
         }
 
-        \Cart::remove($updatedItem->id);
+        \Cart::remove($removedItem->id);
 
         $cartItems = \Cart::getContent()->sort();
 

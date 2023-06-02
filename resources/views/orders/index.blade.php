@@ -17,7 +17,7 @@
                     <th scope="col" style="width:25%">Created By</th>
                     <th scope="col">Items</th>
                     <th scope="col">Price</th>
-                    <th scope="col" style="width:27%">Status</th>
+                    <th scope="col" style="width:28%">Status</th>
                 </tr>
             </thead>
             <tbody>

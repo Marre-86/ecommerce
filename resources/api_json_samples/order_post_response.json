@@ -1,0 +1,14 @@
+{
+    "success": true,
+    "data": {
+        "description": "Delivery for John Doe. Address: 123 Main Street. Instructions: Please leave the package at the front door.",
+        "phone": "(555) 123-4567",
+        "created_by_id": 2,
+        "status": "Awaiting Confirmation",
+        "created_at": "2023-06-02 | 08:51",
+        "id": 16,
+        "price": "629.93",
+        "items": 1
+    },
+    "message": "New order has been made successfully."
+}

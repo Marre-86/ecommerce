@@ -61,7 +61,7 @@
           </div>
           @endif
 
-          <div style="clear:both">
+          <div style="clear:both; margin-bottom:1rem;">
             @include('components.make-order-form')
           </div>
         </div>

@@ -1,0 +1,26 @@
+{
+    "success": true,
+    "data": [
+        {
+            "id": 3,
+            "created_by_id": 2,
+            "status": "Shipped",
+            "description": "Just deliver in time. Don't piss me off",
+            "phone": "0378 612 723",
+            "created_at": "2023-06-01 | 14:48",
+            "price": "586.98",
+            "items": 3
+        },
+        {
+            "id": 16,
+            "created_by_id": 2,
+            "status": "Awaiting Confirmation",
+            "description": "Delivery for John Doe. Address: 123 Main Street. Instructions: Please leave the package at the front door.",
+            "phone": "(555) 123-4567",
+            "created_at": "2023-06-02 | 08:51",
+            "price": "629.93",
+            "items": 1
+        }
+    ],
+    "message": "Orders retrieved successfully."
+}

@@ -96,7 +96,7 @@ $web-font-path: "https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&di
     border-radius: 5px;
     margin-bottom: 4rem;
     max-width: 100%;
-    overflow-x: auto;
+    overflow-x: hidden;
   }
 
   .acc-code {
@@ -107,8 +107,23 @@ $web-font-path: "https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&di
 
   .acc-header-content {
     display: inline;
+    width:95%;
+    margin-right:1rem;
   }
   
   .acc-header-text {
     margin-top: 5px;
+  }
+
+  .acc-get {
+    background-color: rgb(237, 239, 248);
+  }
+  .acc-post {
+    background-color: rgb(241, 254, 254)
+  }
+  .acc-patch {
+    background-color: lightgoldenrodyellow;
+  }
+  .acc-delete {
+    background-color: rgb(251, 239, 242);
   }

@@ -72,8 +72,7 @@
                     <tr class="table-active text-center" style="vertical-align: middle; font-weight: bold">
                         <td></td>
                         <td></td>
-                        <td></td>
-                        <td>Total Cost:</td>
+                        <td colspan="2" style="text-align:right">Total Cost:</td>
                         <td style="white-space: nowrap;">{{ number_format($order->products()->selectRaw('SUM(order_product.price * order_product.quantity) as total_price')->pluck('total_price')->first(), 2) }} $</td>
                     </tr>
             </tbody>
