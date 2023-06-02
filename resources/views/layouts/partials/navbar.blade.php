@@ -13,17 +13,17 @@
                                     <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                         @foreach ($categories as $category)
                                             <li>
-                                                <a class="dropdown-item" {{ $category->products->isNotEmpty() ? 'href=products?filter[category_id]=' . $category->id : 'href=#' }}>{{ $category->children->isNotEmpty() ? $category->name . html_entity_decode(" &raquo;") : $category->name }}</a>
+                                                <a class="dropdown-item" {{ $category->products->isNotEmpty() ? 'href=/products?filter[category_id]=' . $category->id : 'href=#' }}>{{ $category->children->isNotEmpty() ? $category->name . html_entity_decode(" &raquo;") : $category->name }}</a>
                                                 @if ($category->children->isNotEmpty())
                                                     <ul class="dropdown-menu dropdown-submenu">
                                                         @foreach ($category->children as $child)
                                                             <li>
-                                                                <a class="dropdown-item" {{ $child->products->isNotEmpty() ? 'href=products?filter[category_id]=' . $child->id : 'href=#' }}>{{ $child->children->isNotEmpty() ? $child->name . html_entity_decode(" &raquo;") : $child->name }}</a>
+                                                                <a class="dropdown-item" {{ $child->products->isNotEmpty() ? 'href=/products?filter[category_id]=' . $child->id : 'href=#' }}>{{ $child->children->isNotEmpty() ? $child->name . html_entity_decode(" &raquo;") : $child->name }}</a>
                                                                 @if ($child->children->isNotEmpty())
                                                                     <ul class="dropdown-menu dropdown-submenu">
                                                                         @foreach ($child->children as $grandchild)
                                                                             <li>
-                                                                                <a class="dropdown-item" {{ $grandchild->products->isNotEmpty() ? 'href=products?filter[category_id]=' . $grandchild->id : 'href=#' }}>{{ $grandchild->name }}</a>
+                                                                                <a class="dropdown-item" {{ $grandchild->products->isNotEmpty() ? 'href=/products?filter[category_id]=' . $grandchild->id : 'href=#' }}>{{ $grandchild->name }}</a>
                                                                             </li>
                                                                             @endforeach
                                                                     </ul>
@@ -44,7 +44,7 @@
                                     <a class="nav-link {{ (Route::current()->getName() == 'items.index') ? 'admin-menu-active' : '' }} admin-menu" href="{{ route('items.index') }}">Manage Products</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link  {{ (Route::current()->getName() == 'category.index') ? 'admin-menu-active' : '' }} admin-menu" href="{{ route('category.index') }}">Manager Cat
+                                    <a class="nav-link  {{ (Route::current()->getName() == 'category.index') ? 'admin-menu-active' : '' }} admin-menu" href="{{ route('category.index') }}">Manage Categories
                                         <span class="visually-hidden">(current)</span>
                                     </a>
                                 </li>

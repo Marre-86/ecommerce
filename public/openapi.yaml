@@ -4,7 +4,7 @@ info:
   description: Artem Pokhiliuk's training progect 
   version: 1.0.0
 servers:
-  - url: https://$$$$$$$$$$-production.up.railway.app/api/v1
+  - url: https://manul-shop-production.up.railway.app/api/v1
     description: Main (production) server
   - url: localhost:8000/api/v1
     description: Internal staging server for testing
@@ -608,7 +608,7 @@ components:
         category_name:
           type: string
         price:
-          type: string
+          type: number
         weight:
           type: number
           nullable: true

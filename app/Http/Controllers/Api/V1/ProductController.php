@@ -19,7 +19,10 @@ class ProductController extends BaseController
             $categoryGrandparentId = $categories->where('id', $product['category_id'])->pluck('grandparent_id')->first();  // phpcs:ignore
             $categoryGrandparentName = $categories->where('id', $categoryGrandparentId)->pluck('name')->first();
             $product['category_name'] = ltrim("$categoryGrandparentName/{$categoryParentName}/{$categoryName}", "/");
-            $product['price'] = number_format((float)$product['price'], 2, '.', '');
+            $product['price'] = (float) number_format((float)$product['price'], 2, '.', '');
+            $product['length'] = (float) $product['length'];
+            $product['weight'] = (float) $product['weight'];
+            $product['width'] = (float) $product['width'];
             return $product;
         });
         return $products;

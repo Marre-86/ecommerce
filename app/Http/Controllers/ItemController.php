@@ -35,11 +35,13 @@ class ItemController extends Controller
     public function store(Request $request)
     {
         $item = new Product();
-
         $data = $this->validate($request, [
             'name' => 'min:3|max:64|unique:products',
             'category_id' => 'required',
             'price' => 'required',
+            'length' => 'nullable',
+            'weight' => 'nullable',
+            'width' => 'nullable',
             'description' => 'nullable|max:400']);
         $item->fill($data);
         $item->save();
@@ -78,6 +80,9 @@ class ItemController extends Controller
             'name' => 'min:3|max:64|unique:products,name,' . $item->id,
             'category_id' => 'required',
             'price' => 'required',
+            'length' => 'nullable',
+            'weight' => 'nullable',
+            'width' => 'nullable',
             'description' => 'nullable|max:400']);
         $item->fill($data);
         $item->save();

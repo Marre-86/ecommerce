@@ -54,7 +54,7 @@
                     <p class="accordion-header" id="headingOne">
                         <button class="accordion-button collapsed acc-get" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
                           <div class="acc-header-content">
-                            <span class="text-primary">GET /api/v1/listing-categories</span>
+                            <span class="text-primary">GET /api/v1/listing-categories/tree</span>
                             <span class="acc-header-text">&nbsp;– returns a tree of categories (nested structure). Example of the response:</span>
                           </div>
                         </button>
