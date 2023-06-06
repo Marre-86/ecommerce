@@ -1,69 +1,59 @@
+[![author-check](https://github.com/Marre-86/manul-shop/actions/workflows/author-check.yml/badge.svg)](https://github.com/Marre-86/manul-shop/actions/workflows/author-check.yml)
 [![Maintainability](https://api.codeclimate.com/v1/badges/ee834f6a71fc0ca2cf33/maintainability)](https://codeclimate.com/github/Marre-86/ecommerce/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/ee834f6a71fc0ca2cf33/test_coverage)](https://codeclimate.com/github/Marre-86/ecommerce/test_coverage)
 
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Desription
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+["Manul Shop"](https://manul-shop-production.up.railway.app/) is a simple e-commerce web platform with rich token-based API. It has been developed by [Artem Pokhiliuk](https://www.linkedin.com/in/artem-pokhiliuk/) as a training project in Laravel framework with a wide variety of related techs usage.
 
-## About Laravel
+The users of this platform are entitled to view available products (applying a wide range of filter, if needed), add them to a shopping cart and make an order. Authenticated users have access to the history of their orders and can cancel them in case they haven't been confirmed (by admin) yet.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Admins have access to the extensive 'underwater' part of this application, where they can manage (add, update and delete) products, categories and orders.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+Majority of these operations is available in two ways: in the browser and by API.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Whoever is reading this and wants to fiddle with the app, is free to either register with the app on his own or use the following credentials to log in, for saving some time:
 
-## Learning Laravel
+| Name             | Role  | Email | Password |
+|------------------|-------|-------|----------|
+| Robb Jones       | admin | a@a   | aaaaaa   |
+| John Persimonn   | -     | s@s   | ssssss   |
+| Yulia Pesochkina | -     | d@d   | dddddd   |
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+# About this project
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+This app was developed in the **Laravel PHP framework** (ver. 10.0), and only cutting-edge approaches and techniques were used.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+As an authentication module, the combination of Laravel Breeze and Laravel Sanctum was incorporated into the project. Breeze implements standard auth features for the web interface of the app. Sanctum issues and verifies API tokens for users requesting app by API.
 
-## Laravel Sponsors
+The special role of *'admin'* can be assigned to a user. This role has an extensive list of permissions - actions that regular users cannot commit. The Laravel Permission package from Spatie was used for implementing this feature.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+All user data is stored in the **PostgreSQL database**. Operations of storing and extracting database data are implemented through Laravel's built-in **ORM Eloquent**. Migration files are written, models and relationships between them (o2m, m2m) are developed and implemented. Initial DB populating with a set of dummy data has been accomplished by using seeders.
 
-### Premium Partners
+The page, displaying available products has been developed in **Vue.js**. It dynamically changes the content of the page in accordance with user's actions (changing search filters) in no time by means of fetching data from the API. This page was seamlessly embedded into the skeleton of this Laravel-based project. Vue Router was used for linking this product page with the main navbar categories dropdown.
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+A RESTful API has been created for this project. A nice-looking representation of all existing endpoints and the HTTP methods with examples of requests and responses can be found on the main web-page of a project. Here's the short roundup: 
 
-## Contributing
+**server url** - https://manul-shop-production.up.railway.app/api/v1:
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+- **POST /register** - sign up for this application.
+- **POST /login** - log in to this application.
+- **GET /listing-categories/tree** - returns a tree of categories.
+- **POST /category** - adds a new category. Requires authorization.
+- **GET /products** - returns a list of products in the database.
+- **GET /cart** - returns the content of the shopping cart. Requires authorization.
+- **POST /cart** - adds a product with specified id into the cart. Requires authorization.
+- **PATCH /cart** - updates the quantity of a product with specified id into the cart. Requires authorization.
+- **DELETE /cart/:id** - removes product with specified id from the cart. Requires authorization.
+- **POST /orders** - creates a new order consisting of all items in the cart. Requires authorization.
+- **GET /orders** - returns list of orders made by authenthiticated user. Requires authorization.
+- **GET /orders/:id** - returns detailed info about the order of authenthiticated user by ID. Requires authorization.
+- **DELETE /orders/:id** - deletes the order of authenthiticated user by ID. Requires authorization.
 
-## Code of Conduct
+[OpenAPI file](https://github.com/Marre-86/manul-shop/blob/main/public/openapi.yaml) has been written, meticulously describing the entire API.
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+Controller methods processing API requests are covered by automated tests based on PHPUnit and Laravel built-in assertion methods. [Additional package](https://github.com/kirschbaum-development/laravel-openapi-validator) has been integrated into these tests, it checks incoming requests and outcoming responses for compliance with aforementioned OpenAPI spec.
 
-## Security Vulnerabilities
+Web-interface controller methods are also extensively covered by tests. A test coverage report from **Codeclimate** was attached to this project and the overall percentage is seen at the top of this readme.
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+**GitHub Actions** CI/CD workflow for this project was also created and tuned in a way that every commit is instantly being built, tested and deployed if no errors were found. **Railway** deployment platform [hosts](https://manul-shop-production.up.railway.app/) this web app. Also it is linked to the real-time error tracking platform **Rollbar**.

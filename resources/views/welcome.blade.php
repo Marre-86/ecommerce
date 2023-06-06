@@ -16,7 +16,7 @@
 
                 <div class="acc-code">
                     <p class="accordion-header" id="headingFour">
-                        <button class="accordion-button collapsed acc-post" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                        <button class="accordion-button collapsed acc-post" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour" style="user-select: text;">
                           <div class="acc-header-content">
                             <span class="text-primary">POST api/v1/register</span>
                             <span class="acc-header-text">&nbsp;– sign up for this application. Example of the request:</span>
@@ -34,7 +34,7 @@
 
                 <div class="acc-code">
                     <p class="accordion-header" id="headingFive">
-                        <button class="accordion-button collapsed acc-post" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                        <button class="accordion-button collapsed acc-post" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive" style="user-select: text;">
                           <div class="acc-header-content">
                             <span class="text-primary">POST /api/v1/login</span>
                             <span class="acc-header-text">&nbsp;– log in to this application. Example of the request:</span>
@@ -52,7 +52,7 @@
 
                 <div class="acc-code">
                     <p class="accordion-header" id="headingOne">
-                        <button class="accordion-button collapsed acc-get" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                        <button class="accordion-button collapsed acc-get" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne" style="user-select: text;">
                           <div class="acc-header-content">
                             <span class="text-primary">GET /api/v1/listing-categories/tree</span>
                             <span class="acc-header-text">&nbsp;– returns a tree of categories (nested structure). Example of the response:</span>
@@ -68,7 +68,7 @@
 
                 <div class="acc-code">
                     <p class="accordion-header" id="headingTwo">
-                        <button class="accordion-button collapsed acc-post" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        <button class="accordion-button collapsed acc-post" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" style="user-select: text;">
                           <div class="acc-header-content">    
                             <span class="text-primary">POST /api/v1/category</span>
                             <span class="acc-header-text">&nbsp;– adds a new category. Requires authorization. Example of the request:</span>
@@ -86,7 +86,7 @@
 
                 <div class="acc-code">
                     <p class="accordion-header" id="headingThree">
-                        <button class="accordion-button collapsed acc-get" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                        <button class="accordion-button collapsed acc-get" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree" style="user-select: text;">
                           <div class="acc-header-content">
                             <span class="text-primary">GET /api/v1/products</span>
                             <span class="acc-header-text">&nbsp;– returns a list of products in the database. The following query parameters for filtering are available:</span>
@@ -112,7 +112,7 @@
 
                 <div class="acc-code">
                     <p class="accordion-header" id="headingSix">
-                        <button class="accordion-button collapsed acc-get" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                        <button class="accordion-button collapsed acc-get" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix" style="user-select: text;">
                           <div class="acc-header-content">    
                             <span class="text-primary">GET /api/v1/cart</span>
                             <span class="acc-header-text">&nbsp;– returns the content of the shopping cart. Requires authorization. Example of the response:</span>
@@ -128,7 +128,7 @@
 
                 <div class="acc-code">
                     <p class="accordion-header" id="headingSeven">
-                        <button class="accordion-button collapsed acc-post" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+                        <button class="accordion-button collapsed acc-post" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven" style="user-select: text;">
                           <div class="acc-header-content">    
                             <span class="text-primary">POST /api/v1/cart</span>
                             <span class="acc-header-text">&nbsp;– adds a product with specified id into the cart. Requires authorization. Example of the request:</span>
@@ -146,7 +146,7 @@
 
                 <div class="acc-code">
                     <p class="accordion-header" id="headingEight">
-                        <button class="accordion-button collapsed acc-patch" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
+                        <button class="accordion-button collapsed acc-patch" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight" style="user-select: text;">
                           <div class="acc-header-content">    
                             <span class="text-primary">PATCH /api/v1/cart</span>
                             <span class="acc-header-text">&nbsp;– updates the quantity of a product with specified id into the cart. Requires authorization. Example of the request:</span>
@@ -164,7 +164,7 @@
 
                 <div class="acc-code">
                     <p class="accordion-header" id="headingNine">
-                        <button class="accordion-button collapsed acc-delete" type="button" data-bs-toggle="collapse" data-bs-target="#collapseNine" aria-expanded="false" aria-controls="collapseNine">
+                        <button class="accordion-button collapsed acc-delete" type="button" data-bs-toggle="collapse" data-bs-target="#collapseNine" aria-expanded="false" aria-controls="collapseNine" style="user-select: text;">
                           <div class="acc-header-content">    
                             <span class="text-primary">DELETE /api/v1/cart/:id</span>
                             <span class="acc-header-text">&nbsp;– removes product with specified id from the cart. Requires authorization. Returns updated content of the cart. Example of the response:</span>
@@ -180,10 +180,10 @@
 
                 <div class="acc-code">
                     <p class="accordion-header" id="headingTen">
-                        <button class="accordion-button collapsed acc-post" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTen" aria-expanded="false" aria-controls="collapseTen">
+                        <button class="accordion-button collapsed acc-post" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTen" aria-expanded="false" aria-controls="collapseTen" style="user-select: text;">
                           <div class="acc-header-content">    
                             <span class="text-primary">POST /api/v1/orders</span>
-                            <span class="acc-header-text">&nbsp;– creates a new order consisting of all items in the Cart. Requires authorization. Example of the request (fields 'phone' and 'description' are optional):</span>
+                            <span class="acc-header-text">&nbsp;– creates a new order consisting of all items in the cart. Requires authorization. Example of the request (fields 'phone' and 'description' are optional):</span>
                           </div>
                         </button>
                     </p>
@@ -198,7 +198,7 @@
 
                 <div class="acc-code">
                     <p class="accordion-header" id="headingEleven">
-                        <button class="accordion-button collapsed acc-get" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEleven" aria-expanded="false" aria-controls="collapseEleven">
+                        <button class="accordion-button collapsed acc-get" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEleven" aria-expanded="false" aria-controls="collapseEleven" style="user-select: text;">
                           <div class="acc-header-content">    
                             <span class="text-primary">GET /api/v1/orders</span>
                             <span class="acc-header-text">&nbsp;– returns list of orders made by authenthiticated user. Requires authorization. Example of the response:</span>
@@ -214,7 +214,7 @@
 
                 <div class="acc-code">
                     <p class="accordion-header" id="headingTwelwe">
-                        <button class="accordion-button collapsed acc-get" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwelwe" aria-expanded="false" aria-controls="collapseTwelwe">
+                        <button class="accordion-button collapsed acc-get" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwelwe" aria-expanded="false" aria-controls="collapseTwelwe" style="user-select: text;">
                           <div class="acc-header-content">    
                             <span class="text-primary">GET /api/v1/orders/:id</span>
                             <span class="acc-header-text">&nbsp;– returns detailed info about the order of authenthiticated user by ID. Requires authorization. Example of the response:</span>
@@ -230,7 +230,7 @@
 
                 <div class="acc-code">
                     <p class="accordion-header" id="headingThirteen">
-                        <button class="accordion-button collapsed acc-delete" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThirteen" aria-expanded="false" aria-controls="collapseThirteen">
+                        <button class="accordion-button collapsed acc-delete" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThirteen" aria-expanded="false" aria-controls="collapseThirteen" style="user-select: text;">
                           <div class="acc-header-content">    
                             <span class="text-primary">DELETE /api/v1/orders/:id</span>
                             <span class="acc-header-text">&nbsp;– deletes the order of authenthiticated user by ID (if it hasn't been confirmed yet). Requires authorization. Example of the response:</span>
