@@ -48,6 +48,11 @@ class ProfileController extends Controller
 
         $user = $request->user();
 
+        if ($user->orders()->count() > 0) {
+            flash('Impossible! You have some orders in the database')->error();
+            return Redirect::route('profile.edit');
+        }
+
         Auth::logout();
 
         $user->delete();
@@ -55,6 +60,7 @@ class ProfileController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
+        flash('Your account has successfully been deleted')->success();
         return Redirect::to('/');
     }
 }
