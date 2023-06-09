@@ -52,6 +52,7 @@
         <table class="table table-hover">
             <thead>
                 <tr class="text-center" style="vertical-align: middle">
+                    <th scope="col"></th>
                     <th scope="col">Name</th>
                     <th scope="col">Category</th>
                     <th scope="col">Quantity</th>
@@ -62,6 +63,11 @@
             <tbody>
                         @foreach ($order->products as $product)
                     <tr class="table-secondary text-center" style="vertical-align: middle">
+                        <td>
+                            @if ($product->image)
+                                <img src="{{ asset('storage/images/'.$product->image) }}" class="img-sm">
+                            @endif
+                        </td>
                         <td>{{ $product->name }}</td>
                         <td>{{ $product->getCategoryNameWithAllParents() }}</td>
                         <td>{{ $product->pivot->quantity }}</td>
@@ -70,6 +76,7 @@
                     </tr>
                          @endforeach
                     <tr class="table-active text-center" style="vertical-align: middle; font-weight: bold">
+                        <td></td>
                         <td></td>
                         <td></td>
                         <td colspan="2" style="text-align:right">Total Cost:</td>

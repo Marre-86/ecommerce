@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Category;
+use Illuminate\Support\Facades\Storage;
 
 class ItemController extends Controller
 {
@@ -38,13 +39,23 @@ class ItemController extends Controller
         $data = $this->validate($request, [
             'name' => 'min:3|max:64|unique:products',
             'category_id' => 'required',
-            'price' => 'required',
+            'price' => 'required|gte:0',
             'length' => 'nullable',
             'weight' => 'nullable',
             'width' => 'nullable',
-            'description' => 'nullable|max:400']);
+            'description' => 'nullable|max:400',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,bmp|max:1024'
+        ]);
+
         $item->fill($data);
         $item->save();
+
+        if ($request->has('image')) {
+            $fileName = $item->slug . '.' . $request->image->extension();
+            $request->image->storeAs('public/images', $fileName);
+            $item->image = $fileName;
+            $item->save();
+        }
 
         flash('Item has been successfully created!')->success();
         return redirect()->route('items.index');
@@ -76,16 +87,38 @@ class ItemController extends Controller
     {
         $item = Product::findOrFail($item->id);
 
+        $oldName = $item->name;
+
         $data = $this->validate($request, [
             'name' => 'min:3|max:64|unique:products,name,' . $item->id,
             'category_id' => 'required',
-            'price' => 'required',
+            'price' => 'required|gte:0',
             'length' => 'nullable',
             'weight' => 'nullable',
             'width' => 'nullable',
-            'description' => 'nullable|max:400']);
+            'description' => 'nullable|max:400',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,bmp|max:1024']);
         $item->fill($data);
         $item->save();
+           // renaming image in accordance with a new item name
+        if ($oldName !== $request->input('name')) {
+            $oldFilePath = 'public/images/' . $item->image;
+            $newFileName = $item->slug . '.' . pathinfo($item->image, PATHINFO_EXTENSION);
+            $newFilePath = 'public/images/' . $newFileName;
+            if (Storage::exists($oldFilePath)) {
+                Storage::move($oldFilePath, $newFilePath);
+            }
+            $item->image = $newFileName;
+            $item->save();
+        }
+            // overwriting image file with a new one
+        if ($request->has('image')) {
+            $fileName = $item->slug . '.' . $request->image->extension();
+            $request->image->storeAs('public/images', $fileName);
+            $item->image = $fileName;
+            $item->save();
+        }     // i see the potential gap here in case new file has another extension
+                // it won't be overwritten, it will be just added and the old file will stay
 
         flash('Item has been successfully updated!')->success();
         return redirect()->route('items.index');
@@ -101,6 +134,13 @@ class ItemController extends Controller
         if ($item->orders->isNotEmpty()) {
             flash('Item can\'t be deleted because it has been ordered at least once!')->error();
             return redirect()->route('items.index');
+        }
+
+        if ($item->image !== null) {
+            $imageFilePath = 'public/images/' . $item->image;
+            if (Storage::exists($imageFilePath)) {
+                Storage::delete($imageFilePath);
+            }
         }
 
         $item->delete();

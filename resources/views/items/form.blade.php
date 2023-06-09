@@ -38,23 +38,38 @@
   <div class="row" style="width:83%; margin-bottom:10px;">
     <div class="form-group col">
       {{ Form::label('price', 'Price') }}
-      {{ Form::number('price', $item->price, ['class' => 'form-control', 'step' => '0.01', 'required' => 'required'])}}
+      {{ Form::number('price', $item->price, ['class' => 'form-control', 'step' => '0.01', 'required' => 'required', 'min' => '0'])}}
     </div>
     <div class="form-group col">
       {{ Form::label('weight', 'Weight') }}
-      {{ Form::number('weight', $item->weight, ['class' => 'form-control', 'step' => '0.01'])}}
+      {{ Form::number('weight', $item->weight, ['class' => 'form-control', 'step' => '0.01', 'min' => '0'])}}
     </div>
     <div class="form-group col">
       {{ Form::label('length', 'Length') }}
-      {{ Form::number('length', $item->length, ['class' => 'form-control', 'step' => '0.01'])}}
+      {{ Form::number('length', $item->length, ['class' => 'form-control', 'step' => '0.01', 'min' => '0'])}}
     </div>
     <div class="form-group col">
       {{ Form::label('width', 'Width') }}
-      {{ Form::number('width', $item->width, ['class' => 'form-control', 'step' => '0.01'])}}
+      {{ Form::number('width', $item->width, ['class' => 'form-control', 'step' => '0.01', 'min' => '0'])}}
     </div>
-  </div>
-  
+  </div>  
   <div class="form-group" style="margin-bottom:10px;">
     {{ Form::label('description', 'Description') }}
     {{ Form::textarea('description', $item->description, ['class' => 'form-control', 'style' => 'width:80%', 'rows' => 4])}}
   </div>
+
+  @if (Request::route()->getName() === 'items.edit')     
+    <p style="margin-bottom:0.2rem">Image</p>
+    <div style="width:10rem; margin-bottom:1rem">
+                <img src="{{ asset('storage/images/'.$item->image) }}" class="img-form">
+    </div>
+    <small id="imageHelp" class="form-text text-muted">Impossible to delete the image.</small><br>
+    {{ Form::label('image', 'If you want to replace it with another file, then choose it:') }}
+  @elseif (Request::route()->getName() === 'items.edit')     
+    {{ Form::label('image', 'Image') }}
+  @endif
+
+  <div class="form-group" style="margin-bottom:10px;">
+    {{ Form::file('image', ['class' => 'form-control', 'style' => 'width:40%'])}}
+    <small id="imageHelp" class="form-text text-muted">Max size is 1024 kB.</small>
+ </div>

@@ -6,10 +6,16 @@
       <button type="button" class="btn btn-info disabled" style="background-color:#007bff;float:right">{{ product.price }} $</button>
     </div>
     <div class="button-container">
-      <svg xmlns="http://www.w3.org/2000/svg" class="d-block user-select-none" width="100%" height="200" aria-label="Placeholder: Image cap" focusable="false" role="img" preserveAspectRatio="xMidYMid slice" viewBox="0 0 318 180" style="font-size:1.125rem;text-anchor:middle">
-        <rect width="100%" height="100%" fill="#868e96"></rect>
-        <text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text>
-      </svg>
+
+      <div v-if="product.image">
+        <a :href="'storage/images/' + product.image" target="_blank">
+          <img :src="'storage/images/' + product.image" :alt="product.image" class="img"/>
+        </a>
+      </div>
+      <div v-else>
+        <img :src="'storage/images/noimage.png'" alt="No image available" class="img"/>
+      </div>
+
       <form action="/cart" method="POST" enctype="multipart/form-data">
         <input type="hidden" name="_token" :value="csrf">
         <input type="hidden" :value=product.id name="id">

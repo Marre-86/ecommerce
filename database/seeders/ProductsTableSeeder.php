@@ -20,21 +20,24 @@ class ProductsTableSeeder extends Seeder
             'description' => 'Split Maxi Summer Beach Dress with Pockets',
             'price' => 30.59,
             'weight' => 1,
-            'category_id' => 4
+            'category_id' => 4,
+            'image' => 'anrabess-casual-loose-short-sleeve-long-dress.jpg'
         ]);
 
         Product::create([
             'name' => 'Vince Camuto Women\'s Hamden Slingback Pump',
             'price' => 86.12,
             'weight' => 2,
-            'category_id' => 8
+            'category_id' => 8,
+            'image' => 'vince-camuto-womens-hamden-slingback-pump.jpg'
         ]);
 
         Product::create([
             'name' => 'Franco Sarto Women\'s Milano Pointed Toe Slingback Pump',
             'price' => 89.99,
             'weight' => 0.5,
-            'category_id' => 8
+            'category_id' => 8,
+            'image' => 'franco-sarto-womens-milano-pointed-toe-slingback-pump.jpg'
         ]);
 
         Product::create([
@@ -42,28 +45,32 @@ class ProductsTableSeeder extends Seeder
             'description' => 'Fashion women high heel sandals features in elegant open toe with sexy one-word strap design, elegant and avant-garde, which create an optical illusion for your legline appearing longer.',
             'price' => 12.90,
             'weight' => 0.74,
-            'category_id' => 6
+            'category_id' => 6,
+            'image' => 'dream-pairs-womens-high-stilettos-heels.jpg'
         ]);
 
         Product::create([
             'name' => 'The Drop Women\'s Avery Square High Heels',
             'price' => 49.90,
             'weight' => 0.58,
-            'category_id' => 6
+            'category_id' => 6,
+            'image' => 'the-drop-womens-avery-square-high-heels.jpg'
         ]);
 
         Product::create([
             'name' => 'Syktkmx Womens\' Braided Heeled Sandals',
             'price' => 49.88,
             'weight' => 0.95,
-            'category_id' => 6
+            'category_id' => 6,
+            'image' => 'syktkmx-womens-braided-heeled-sandals.jpg'
         ]);
 
         Product::create([
             'name' => 'Amazon Essentials Women\'s Buckle Mule',
             'price' => 19.41,
             'weight' => 0.36,
-            'category_id' => 7
+            'category_id' => 7,
+            'image' => 'amazon-essentials-womens-buckle-mule.jpg'
         ]);
 
         Product::create([
@@ -72,7 +79,8 @@ class ProductsTableSeeder extends Seeder
             'weight' => 0.48,
             'width' => 1.12,
             'length' => 2.13,
-            'category_id' => 7
+            'category_id' => 7,
+            'image' => 'the-drop-womens-troy-pointed-toe-mule-slide.jpg'
         ]);
 
         Product::create([
@@ -81,7 +89,8 @@ class ProductsTableSeeder extends Seeder
             'weight' => 0.64,
             'width' => 1.50,
             'length' => 1.56,
-            'category_id' => 7
+            'category_id' => 7,
+            'image' => 'slocyclub-flat-mules.jpg'
         ]);
 
         Product::create([
@@ -101,7 +110,8 @@ class ProductsTableSeeder extends Seeder
             'weight' => 1.67,
             'width' => 1.56,
             'length' => 1.25,
-            'category_id' => 9
+            'category_id' => 9,
+            'image' => 'ellie-shoes-womens-253-elizabeth-ankle-bootie.jpg'
         ]);
 
         Product::create([
@@ -111,7 +121,8 @@ class ProductsTableSeeder extends Seeder
             'weight' => 2.16,
             'width' => 1.70,
             'length' => 1.46,
-            'category_id' => 9
+            'category_id' => 9,
+            'image' => 'betsey-johnson-womens-sb-cady-ankle-boot.jpg'
         ]);
 
         Product::create([
@@ -121,7 +132,8 @@ class ProductsTableSeeder extends Seeder
             'weight' => 0.89,
             'width' => 1.12,
             'length' => 1.80,
-            'category_id' => 4
+            'category_id' => 4,
+            'image' => 'btfbm-women-summer-bohemian-floral-casual-dress.jpg'
         ]);
 
         Product::create([
@@ -131,7 +143,8 @@ class ProductsTableSeeder extends Seeder
             'weight' => 0.89,
             'width' => 0.76,
             'length' => 1.86,
-            'category_id' => 4
+            'category_id' => 4,
+            'image' => 'amoretu-women-summer-tunic-dress.jpg'
         ]);
 
         Product::create([
@@ -151,7 +164,8 @@ class ProductsTableSeeder extends Seeder
             'weight' => 1.13,
             'width' => 0.53,
             'length' => 1.07,
-            'category_id' => 4
+            'category_id' => 4,
+            'image' => 'zesica-womens-2023-summer-casual-flutter-dress.jpg'
         ]);
 
         Product::create([
@@ -161,7 +175,8 @@ class ProductsTableSeeder extends Seeder
             'weight' => 1.19,
             'width' => 1.02,
             'length' => 2.14,
-            'category_id' => 4
+            'category_id' => 4,
+            'image' => 'dress-the-population-womens-alicia-dress.jpg'
         ]);
 
         Product::create([
@@ -171,7 +186,8 @@ class ProductsTableSeeder extends Seeder
             'weight' => 0.54,
             'width' => 0.71,
             'length' => 1.80,
-            'category_id' => 4
+            'category_id' => 4,
+            'image' => 'alex-evenings-womens-tea-length-sequin-mock-dress.jpg'
         ]);
 
         Product::create([
@@ -181,7 +197,8 @@ class ProductsTableSeeder extends Seeder
             'weight' => 3.16,
             'width' => 0.98,
             'length' => 1.80,
-            'category_id' => 11
+            'category_id' => 11,
+            'image' => 'valenki-russian-traditional-winter-felt-boots.jpg'
         ]);
 
         Product::create([
@@ -191,7 +208,8 @@ class ProductsTableSeeder extends Seeder
             'weight' => 3.58,
             'width' => 0.98,
             'length' => 1.84,
-            'category_id' => 11
+            'category_id' => 11,
+            'image' => 'valenki-russian-traditional-rubberized-winter-felt-boots.jpg'
         ]);
 
         Product::create([
@@ -201,7 +219,8 @@ class ProductsTableSeeder extends Seeder
             'weight' => 0.42,
             'width' => 0.23,
             'length' => 0.19,
-            'category_id' => 3
+            'category_id' => 3,
+            'image' => 'accutime-kids-marvel-spider-man-digital-quartz-plastic-watch.jpg'
         ]);
 
         Product::create([
@@ -211,7 +230,8 @@ class ProductsTableSeeder extends Seeder
             'weight' => 0.31,
             'width' => 0.23,
             'length' => 0.26,
-            'category_id' => 3
+            'category_id' => 3,
+            'image' => 'under-armour-boys-heathered-blitzing-30-cap.jpg'
         ]);
 
         Product::create([
@@ -221,7 +241,8 @@ class ProductsTableSeeder extends Seeder
             'weight' => 0.96,
             'width' => 0.45,
             'length' => 0.37,
-            'category_id' => 3
+            'category_id' => 3,
+            'image' => 'spyder-baby-boys-overweb-ski-gloves-toddler.jpg'
         ]);
 
         Product::create([
@@ -231,7 +252,8 @@ class ProductsTableSeeder extends Seeder
             'weight' => 0.54,
             'width' => 0.28,
             'length' => 0.26,
-            'category_id' => 3
+            'category_id' => 3,
+            'image' => 'disney-girls-toddler-winter-hat-and-mittens-set-ages-2-4.jpg'
         ]);        
     }
 }
