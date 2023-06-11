@@ -6,10 +6,22 @@ use App\Models\Product;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
+use Illuminate\Support\Facades\Storage;
 
 class DestroyTest extends TestCase
 {
     use RefreshDatabase;
+
+    protected function setUp(): void
+    {
+        parent::setUp();
+
+        Storage::fake();
+
+        $this->app->bind('filesystem', function ($app) {
+            return Storage::disk('test_disk');
+        });
+    }
 
     public function testItemIsDeletedFromTheDatabase(): void
     {
