@@ -79,6 +79,25 @@ class ProfileTest extends TestCase
         $this->assertNull($user->fresh());
     }
 
+    public function testUserWithOrdersCannotDeleteAccount(): void
+    {
+        $this->seed();
+        $user = User::where('name', 'John Persimonn')->first();
+
+        $response = $this
+            ->actingAs($user)
+            ->delete('/profile', [
+                'password' => 'ssssss',
+            ]);
+
+        $response
+            ->assertSessionHas('flash_notification.0.message', 'Impossible! You have some orders in the database')
+            ->assertRedirect(route('profile.edit'));
+
+        $this->assertDatabaseHas('users', ['name' => 'John Persimonn']);
+        $this->assertAuthenticated();
+    }
+
     public function testCorrectPasswordMustBeProvidedToDeleteAccount(): void
     {
         $user = User::factory()->create();

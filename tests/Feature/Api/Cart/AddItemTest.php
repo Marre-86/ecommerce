@@ -72,6 +72,30 @@ class AddItemTest extends TestCase
         ])->assertStatus(400);
     }
 
+    public function testAddItemFailsWhenNoIDIsSpecified(): void
+    {
+        Sanctum::actingAs(
+            User::factory()->create(),
+            ['*']
+        );
+
+        $itemToAdd = [
+            'quantity' => 10
+        ];
+
+        $this->withoutRequestValidation();
+
+        $response = $this->withHeaders([
+            'Authorization' => 'Bearer #token#'
+        ])->postJson('/api/v1/cart', $itemToAdd);
+
+        $response->assertJson([
+            'data' => [
+                'error' => 'ID of the product should be specified',
+            ],
+        ])->assertStatus(400);
+    }
+
     public function testFailsWhenNotAuthorized(): void
     {
 

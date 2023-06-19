@@ -53,6 +53,34 @@ class UpdateItemTest extends TestCase
             ->assertStatus(200);
     }
 
+    public function testUpdateItemWithQuantityNullWhenAuthorized(): void
+    {
+        Sanctum::actingAs(
+            User::factory()->create(),
+            ['*']
+        );
+
+        $itemToAdd = [
+            'id' => 2,
+            'quantity' => 10
+        ];
+
+        $this->withHeaders([
+            'Authorization' => 'Bearer #token#'
+        ])->postJson('/api/v1/cart', $itemToAdd);
+
+        $response = $this->withHeaders([
+            'Authorization' => 'Bearer #token#'
+        ])->patchJson('/api/v1/cart', ['id' => 2, 'quantity' => 0]);
+
+        $response
+            ->assertJson(fn (AssertableJson $json) =>
+                $json->has('data', 0)
+                    ->where('message', 'Product has been updated in the cart successfully. Updated cart is returned')
+                    ->etc())
+            ->assertStatus(200);
+    }
+
     public function testFailsWhenItemIsNotInTheCart(): void
     {
         Sanctum::actingAs(

@@ -57,6 +57,22 @@ class DestroyTest extends TestCase
             ->assertStatus(403);
     }
 
+    public function testReturnsErrorWhenConfirmedOrderIsRequested(): void
+    {
+        Sanctum::actingAs(
+            User::where('name', 'John Persimonn')->first(),
+            ['*']
+        );
+
+        $response = $this->deleteJson('/api/v1/orders/5');
+
+        $response
+            ->assertJson(['success' => false,
+                          'data' => ['error' => 'Order deletion not allowed. The order has been confirmed and cannot be deleted.']  // phpcs:ignore
+                        ])
+            ->assertStatus(403);
+    }
+
     public function testFailsWhenNotAuthorized(): void
     {
 

@@ -9,25 +9,15 @@ class CategoryTransformer extends TransformerAbstract
 {
     public function transform(Category $category)
     {
-
-        if ($category->childrenWithGrandchildren) {
-            $item = [
-                'id' => (int) $category->id,
-                'name' => $category->name,
-                'parent_id' => $category->parent_id,
-                'grandparent_id' => $category->grandparent_id,
-            ];
-            foreach ($category->childrenWithGrandchildren as $child) {
-                $item['children'][] = $this->transform($child);
-            }
-            return $item;
-        }
-
-        return [
+        $item = [
             'id' => (int) $category->id,
             'name' => $category->name,
             'parent_id' => $category->parent_id,
             'grandparent_id' => $category->grandparent_id,
         ];
+        foreach ($category->childrenWithGrandchildren as $child) {
+            $item['children'][] = $this->transform($child);
+        }
+        return $item;
     }
 }
