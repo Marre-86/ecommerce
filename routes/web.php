@@ -8,7 +8,6 @@ use App\Http\Controllers\ItemController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\OrderController;
 use App\Models\Category;
-use App\Helpers\processFiles;
 
 /*
 |--------------------------------------------------------------------------

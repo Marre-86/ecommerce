@@ -6,6 +6,8 @@ import {createRouter, createWebHistory} from 'vue-router'
 import App from './App.vue';
 import ProdList from './components/Product-listing.vue';
 
+window.Alpine = Alpine;
+
 const router = createRouter({
     history: createWebHistory(),
     routes: [
