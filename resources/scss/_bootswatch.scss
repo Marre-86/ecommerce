@@ -155,3 +155,20 @@ $web-font-path: "https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&di
     height: 100px;
     object-fit: contain;
   }
+
+  .flash-message {
+    animation-name: hideFlashMessage;
+    animation-duration: 0.8s;
+    animation-delay: 2.5s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes hideFlashMessage {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        display: none;
+    }
+}
