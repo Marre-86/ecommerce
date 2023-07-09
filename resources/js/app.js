@@ -8,6 +8,9 @@ import ProdList from './components/Product-listing.vue';
 
 window.Alpine = Alpine;
 
+ujs.start();
+Alpine.start();
+
 const router = createRouter({
     history: createWebHistory(),
     routes: [
@@ -20,6 +23,3 @@ const router = createRouter({
 })
 
 createApp(App).use(router).mount("#prodlist");
-
-ujs.start();
-Alpine.start();
